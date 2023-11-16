@@ -1,0 +1,25 @@
+.divform {
+    background-color: blue;
+}
+.divs {
+    border: 2px solid orange;
+    width: 50%;
+}
+.formulario{
+    font-display: flex;
+    border: 5px solid green;
+}
+.d {
+    display: flex;
+}
+.formulario input {
+    width: 100%;
+}
+
+.divdetalles {
+    padding: 1rem;
+}
+
+.divubicacion {
+    padding: 1rem;
+}

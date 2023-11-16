@@ -1,0 +1,15 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: red;
+}
+
+.layout {
+    position: relative;
+    min-height: 100vh;
+}
+.divchildren {
+    padding: 10rem 0rem 15rem 0rem;
+}

@@ -1,0 +1,141 @@
+.login {
+    display: block;
+    margin: auto;
+    padding: auto;
+    height: 100%;
+    position: relative;
+    padding-bottom: 20rem;
+    min-height: 100vh;
+    
+}
+
+.contenido {
+    display: grid;
+    gap: 3rem;
+    margin-top: 2rem;
+   
+}
+
+.formcontrol{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.logo {
+    margin: 1rem auto;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+@media (min-width:768px) {
+    .contenido {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+    .logo {
+        margin-left: 6rem;
+        margin-right: 4rem;
+    }
+    .login {
+        padding-bottom: 10rem;
+    }
+}
+
+.formulario {
+    align-items: center;
+    margin: 1rem auto;
+    margin-left: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgb(161, 155, 155);
+}
+
+.form {
+    margin: 1rem;
+}
+
+.form div {
+    margin-bottom: 2rem;
+}
+
+.form h3 {
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.form input {
+    border: 1px solid rgb(77, 76, 76);
+    height: 3rem;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.buttonsig {
+    border: none;
+    background-color: rgb(38, 95, 219);
+    height: 3rem;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.buttonsig:hover {
+    background-color: rgb(20, 68, 172);
+}
+
+.question {
+    font-size: 18px;
+}
+
+.register {
+    text-decoration: none;
+}
+
+.beforeafter {
+    display: grid;
+    grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    color: rgb(114, 112, 112);
+}
+
+.beforeafter::before,
+.beforeafter::after {
+    content: '';
+    border-top: 1px double;
+}
+
+.botonGoogle {
+    height: 5rem;
+    width: 100%;
+    border-radius: 40px;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    border: 1px solid rgb(77, 76, 76);
+    margin-right: 20px;
+}
+
+.botonGoogle:hover {
+    cursor: pointer;
+    background-color: rgb(252, 249, 249);
+}
+
+.botonGoogle span {
+    text-decoration: none;
+    margin: auto;
+}
+
+.svg {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.footer {
+    padding: 2rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}

@@ -1,0 +1,110 @@
+.contenedor {
+    padding-top: 0 auto;
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}
+.registerclient {
+    display: block;
+    margin: auto;
+    padding: auto;
+    margin-top: 0rem;
+    height: 100%;
+    position: relative;
+    padding-bottom: 1rem;
+    min-height: 100vh; 
+}
+
+.backgroung {
+    width: 44%;
+    align-items: center;
+    margin: 1rem auto;
+    padding-top: 2em;
+
+}
+.form {
+    border: 1px solid rgb(131, 128, 128);
+    border-radius: 5px;
+    padding: 2rem;
+    align-items: center;
+}
+
+.field p {
+    font-size: 1.4rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.field div {
+    margin-top: 1.9rem;
+    padding-top: 0px;
+}
+
+.field input {
+    border: 1px solid rgb(77, 76, 76);
+    height: 2rem;
+    width: 100%;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.divbutton {
+    padding-top: 20px;
+}
+
+.button {
+    border: none;
+    font-size: 1.3rem;
+    background-color: rgb(38, 95, 219);
+    height: 4rem;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+}
+.button:hover {
+    background-color: rgb(86, 135, 241);
+    cursor: pointer;
+}
+.footer {
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* mensaje de usuario existente */
+.mesaggeExists {
+    width: 40%;
+    color: red;
+}
+.warning {
+    color: red;
+    font-size: 13px;
+}
+
+.divinput{
+    position: relative;
+}
+
+.divinput span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.divinput {
+    padding-left: 50px;
+    border-radius: 10px;
+    
+}
+
+.formcontrol{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+.formcontrolphone{
+    text-decoration: none;
+    font-size: 1.3rem;
+}

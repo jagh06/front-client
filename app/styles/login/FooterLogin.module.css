@@ -1,0 +1,24 @@
+
+.links {
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+@media (min-width: 769px) {
+    .links{
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+.links a {
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 13px;
+    text-align: center;
+}
+
+.links a:hover {
+    text-decoration:underline;
+}

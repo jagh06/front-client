@@ -1,0 +1,36 @@
+.card {
+    width: 37rem;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 2rem;
+}
+
+.divbeneficios {
+    padding-top: 100px;
+}
+
+.beneficios {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(42, 42, 224);
+    color: white;
+    width: 30%;
+    height: 50px;
+}
+
+.button:hover {
+    background-color: rgb(26, 26, 192);
+    cursor: pointer;
+}
+
+.cb {
+    width: 30rem;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 2rem;
+}

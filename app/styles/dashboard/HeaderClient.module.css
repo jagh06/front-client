@@ -1,0 +1,106 @@
+/* is active? non active?*/
+.nonActive {
+    color: white;
+}
+.active {
+    color: rgb(73, 132, 241);
+}
+
+/* */
+.header {
+    background-size: cover;
+    background-position: 50%;
+    background-color: rgb(12, 12, 12);
+    padding: 5px;
+}
+.headerclient{
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width:769px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion {
+    margin-top: 5rem;
+    margin-left: 5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+@media (min-width: 769px) {
+    .navegacion {
+        margin-top: 0;
+    }
+}
+
+.navegacion a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 550;
+    padding: .5rem;
+    text-decoration: none;
+    transition-property: backgroung-color;
+    transition-duration: 0.3s;
+}
+
+.navegacion a:hover {
+    color: rgb(73, 132, 241);
+}
+
+/* dropdownclient */
+
+
+/* si existe imagen de usuario */
+.iconuser {
+    display: grid;
+    place-items: center;
+    margin-left: auto;
+    float: right;
+}
+.dropBody {
+    display: block;
+    height: auto;
+    width: 15rem;
+}
+.imageuser {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.imageuser:hover {
+    border-radius: 100%;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+/* si no existe imagen de usuario */
+.divinitialnameuser {
+    float: right;
+    display: grid;
+    background-color: rgb(169, 173, 173);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.h3initialnameuser {
+    margin: auto;
+    font-size: 20px;
+    color: white;
+}
+
+.spanemail span{
+    color: blue;
+    font-weight: bold;
+}
