@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import cookies from "js-cookie";
 import crypto from "crypto";
 import { jwtVerify } from "jose";
+import { setCookie } from "@/app/utils/cookie";
 
 const Verify = () => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const Verify = () => {
     // Obtiene el token de los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("temporary");
-    cookies.set("t_cifrado", token);
+   //cookies.set("t_cifrado", token);
 
     const decipher = crypto.createDecipher(
       "aes-256-cbc",
@@ -22,7 +23,8 @@ const Verify = () => {
     let tokenDescifrado = decipher.update(token, "hex", "utf-8");
     tokenDescifrado += decipher.final("utf-8");
     if (tokenDescifrado) {
-      router.push(`/client/dashboard/content-manager?temporary=${token}`);
+      setCookie("myToken", tokenDescifrado)
+      router.push(`/client/dashboard/content-manager`);
     }
 
     // Verificar y decodificar el token

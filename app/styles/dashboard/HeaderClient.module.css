@@ -63,13 +63,13 @@
 
 /* si existe imagen de usuario */
 .iconuser {
-    display: grid;
+    /* display: grid; */
     place-items: center;
     margin-left: auto;
     float: right;
 }
 .dropBody {
-    display: block;
+    /* display: block; */
     height: auto;
     width: 15rem;
 }
@@ -87,6 +87,7 @@
 }
 /* si no existe imagen de usuario */
 .divinitialnameuser {
+    border: none;
     float: right;
     display: grid;
     background-color: rgb(169, 173, 173);

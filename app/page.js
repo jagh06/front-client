@@ -1,29 +1,41 @@
-"use client"
-import React, { useState } from 'react'
-import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import { signIn } from "next-auth/react"
-import styles from "./styles/login/Login.module.css"
-import LoginInfo from './client/components/FooterLogin'
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./styles/login/Login.module.css";
+import LoginInfo from "./client/components/FooterLogin";
+import { authenticateUser } from "./utils/auth";
+import { setCookie } from "./utils/cookie";
+import { useRouter } from "next/navigation";
+import { useAuth } from "./context/AuthContext";
 
 const MyApp = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const router = useRouter();
+  const { login } = useAuth();
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-        try {
-            const data = await signIn("credentials", {
-                redirect: false,
-                email,
-                password,
-            })
-        } catch (error) {
-            console.log(error);
-        }
+  const [noAuthhenticate, setNoAuthenticate] = useState("");
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      const userData = await authenticateUser(email, password);
+      if (userData) {
+        let token = userData.data.token;
+        login(token);
+        setCookie("myToken", token);
+        router.push("/client/dashboard/content-manager");
+      } else {
+        setNoAuthenticate("Las Credenciales No Coinciden.");
+      }
+    } catch (error) {
+      console.log(error);
     }
+  };
+
   return (
     <main className="contenedor">
       <div className={styles.login}>
@@ -38,7 +50,7 @@ const MyApp = () => {
             />
           </div>
           <div className={styles.formulario}>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={submitHandler}>
               <div>
                 <h2>Inicia sesión o crea una cuenta</h2>
               </div>
@@ -59,7 +71,7 @@ const MyApp = () => {
               </div>
               <div>
                 <input
-                  type="email"
+                  type="password"
                   id="password_field"
                   className={styles.formcontrol}
                   value={password}
@@ -67,7 +79,12 @@ const MyApp = () => {
                 />
               </div>
               <div>
-                <button  type="submit" className={styles.buttonsig}>
+                {noAuthhenticate && (
+                  <div className={styles.warning}>{noAuthhenticate}</div>
+                )}
+              </div>
+              <div>
+                <button type="submit" className={styles.buttonsig}>
                   Iniciar Sesion
                 </button>
               </div>
@@ -94,4 +111,4 @@ const MyApp = () => {
 };
 
 export default MyApp;
- //http://localhost:3000/client/login
+//http://localhost:3000/client/login

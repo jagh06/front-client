@@ -4,97 +4,41 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../../styles/dashboard/HeaderClient.module.css";
 import { useRouter } from "next/navigation";
-import { parse } from "cookie";
-import crypto from "crypto";
-import { jwtVerify } from "jose";
-import jwt from "jsonwebtoken";
-import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
+import styleDrop from "../../styles/dropdown/Dropdown.module.css";
+import { AiOutlineUser } from "react-icons/ai";
+import { MdCardTravel } from "react-icons/md";
+import { BiLogOutCircle } from "react-icons/bi";
 
 const HeaderClient = () => {
+  const menuRef = useRef();
+  const imgRef = useRef();
+
   const router = useRouter();
   const currentRoute = router.pathname;
   const [initialName, setInitialName] = useState("");
-  
-  const { user } = useAuth();
- 
-  useEffect(() =>{
-    if(user){
-      const initial = user.email[0]
-      setInitialName(initial)
-    }
-  }, [user])
-
-
   const [open, setOpen] = useState(false);
-  const [token, setToken] = useState("");
-  const [cifrado, setCifrado] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
-  const menuRef = useRef();
-  const imageRef = useRef();
+
+  const { user, logout } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      setEmail(user.email)
+      setName(user.name)
+      setInitialName(user.email[0]);
+    }
+  }, [user]);
+
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      if (e.target !== menuRef.current && e.target !== imageRef.current) {
+      if (e.target !== menuRef.current && e.target !== imgRef.current) {
         setOpen(false);
       }
     });
-
-    const getCookieValue = (name) => {
-      const cookies = parse(document.cookie);
-      return cookies[name] || null;
-    };
-
-    //Obtener el valor de la cookie
-    const myCookieValue = getCookieValue("t_cifrado");
-    setCifrado(myCookieValue);
-
-
-    // if (myCookieValue !== null) {
-    //   const decipher = crypto.createDecipher(
-    //     "aes-256-cbc",
-    //     "mi-claver-secreta-cypher"
-    //   );
-    //   let tokenDescifrado = decipher.update(myCookieValue, "hex", "utf-8");
-    //   tokenDescifrado += decipher.final("utf-8");
-
-    //   jwtVerify(tokenDescifrado, new TextEncoder().encode("keymasterjagh06"));
-    //   setToken(tokenDescifrado);
-
-    //   const decodificarToken = (tokenDescifrado) => {
-    //     try {
-    //       const payload = jwt.decode(tokenDescifrado);
-    //       return payload._id;
-    //     } catch (error) {
-    //       console.error("Error al decodificar el token:", error);
-    //       return null;
-    //     }
-    //   };
-
-    //   // Obtén el payload del token
-    //   const data = decodificarToken(tokenDescifrado);
-    //   console.log(data);
-    //   const fetchData = async () => {
-    //     try {
-    //       console.log("id de usuario:::", data);
-    //       const responde = await axios.get(
-    //         `http://localhost:3001/api/clients/id/${data}`
-    //       );
-    //       const datas = responde.data;
-    //       setEmail(datas.data.email);
-    //       setName(datas.data.name);
-    //     } catch (error) {
-    //       console.error("Error al obtener datos:", error);
-    //     }
-    //   };
-
-    //   fetchData();
-    // } else {
-    //   // La cookie aún no está disponible, puedes manejarlo de acuerdo a tus necesidades
-    //   console.log("La cookie aún no está disponible");
-    // }
   }, []);
 
   return (
@@ -112,10 +56,9 @@ const HeaderClient = () => {
             </Link>
             <nav className={styles.navegacion}>
               <Link
-                href={`/client/dashboard/content-manager?temporary=${cifrado}`}
-                //href="/client/dashboard/content-manager?temporary=${cifrado}"
+                href={`/client/dashboard/content-manager`}
                 className={
-                  currentRoute ===`/client/dashboard/content-manager?temporary=${cifrado}`
+                  currentRoute === `/client/dashboard/content-manager`
                     ? styles.active
                     : styles.nonActive
                 }
@@ -123,10 +66,9 @@ const HeaderClient = () => {
                 Pagina de Inicio
               </Link>
               <Link
-                href={`/client/dashboard/add-lodging?temporary=${cifrado}`}
-                //href="/client/dashboard/add-lodging"
+                href={`/client/dashboard/add-lodging`}
                 className={
-                  currentRoute ===`/client/dashboard/add-lodging?temporary=${cifrado}`
+                  currentRoute === `/client/dashboard/add-lodging`
                     ? styles.active
                     : styles.nonActive
                 }
@@ -134,10 +76,9 @@ const HeaderClient = () => {
                 Agregar hotel
               </Link>
               <Link
-                href={`/client/dashboard/my-lodging?temporary=${cifrado}`}
-                //href="/client/dashboard/my-lodging"
+                href={`/client/dashboard/my-lodging`}
                 className={
-                  currentRoute ===`/client/dashboard/my-lodging?temporary=${cifrado}`
+                  currentRoute === `/client/dashboard/my-lodging`
                     ? styles.active
                     : styles.nonActive
                 }
@@ -146,29 +87,67 @@ const HeaderClient = () => {
               </Link>
             </nav>
           </div>
-          <div className={styles.iconuser}>
-            <div>
-              <div className={styles.dropBody}>
-                {/* <div>
-                  <Image
-                    className={styles.imageuser}
-                    src="/images/nexticon.png"
-                    width={100}
-                    height={100}
-                    alt="avatar"
-                    onClick={() => setOpen(!open)}
-                    ref={imageRef}
-                  />
-                </div> */}
-                <div>
-                  <div className={styles.divinitialnameuser}>
-                    <h3 className={styles.h3initialnameuser}>{initialName}</h3>
-                  </div>
-                </div>
 
-                <div>{/* dropdown */}</div>
+          <div className={styles.iconuser}>
+            {/* iconouse */}
+            <div>
+              <div className={styleDrop.dropbody}>
+                <div>
+                  <button
+                    className={styleDrop.imageuser}
+                    onClick={() => setOpen(!open)}
+                    ref={imgRef}
+                  >
+                    {initialName}
+                  </button>
+                </div>
+                <div>
+                  {open && (
+                    <div ref={menuRef} className={styleDrop.droplist}>
+                      <ul className={styleDrop.dropul}>
+                        <span>
+                          <div className={styleDrop.divuser}>
+                            <div className={styleDrop.divimageuserdrop}>
+                              <h3>{initialName}</h3>
+                            </div>
+
+                            <div className={styleDrop.divnameemail}>
+                              <p className={styleDrop.username}>{name}</p>
+                              <p className={styleDrop.useremail}>
+                                {email}
+                              </p>
+                            </div>
+                          </div>
+                        </span>
+                        <li>
+                          <Link className={styleDrop.link} href="">
+                            <AiOutlineUser size={20} />
+                            <p>Gestionar cuenta</p>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className={styleDrop.link} href="">
+                            <MdCardTravel size={20} />
+                            <p>Mi hospedaje</p>
+                          </Link>
+                        </li>
+                        <li
+                          onClick={() => {
+                            logout()
+                          }}
+                        >
+                          <span className={styleDrop.link}>
+                            <BiLogOutCircle size={20} />
+                            <p>Cerrar Sesion</p>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
+            <div></div>
           </div>
         </div>
       </div>

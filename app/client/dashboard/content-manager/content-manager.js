@@ -2,21 +2,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../../styles/dashboard/Dashboard.module.css";
 import { useRouter } from "next/navigation";
-import cookies from "js-cookie";
 import axios from "axios";
-import crypto from "crypto";
-import { jwtVerify } from "jose";
 import LayoutClient from "../../components/LayoutClient";
 import { useAuth } from "@/app/context/AuthContext";
 
 const Dashboard = () => {
   const { user } = useAuth();
+  console.log(user)
 
-  const [userData, setUserData] = useState(null);
+  const [name, setName] = useState("");
   const router = useRouter();
 
-  //
+  useEffect(() => {
+    if(user){
+      setName(user.name);
+    }
+  }, [user])
 
+  //
   const handleClick = () => {
     router.push("/client/dashboard/add-lodging");
   };
@@ -33,7 +36,7 @@ const Dashboard = () => {
       <main className="contenedor">
         <div>
           <button onClick={() => handleProfile()}>get profile</button>
-          <h2>Bienvenido <span>{user.name}</span></h2>
+          <h2>Bienvenido <span>{name}</span></h2>
           <div className={styles.card}>
             <p>Agrega tu hotel y disfruta de los beneficios que ofrece TS</p>
             <button className={styles.button} onClick={handleClick}>
@@ -58,6 +61,8 @@ const Dashboard = () => {
     </LayoutClient>
   );
 };
+
+
 
 export default Dashboard;
 

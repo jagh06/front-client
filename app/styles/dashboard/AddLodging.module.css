@@ -1,25 +1,113 @@
 .divform {
-    background-color: blue;
+    margin-top: -5rem;
 }
-.divs {
-    border: 2px solid orange;
-    width: 50%;
+.divsone {
+    width: 40%;   
+}
+.divstwo {
+    width: 60%;   
 }
 .formulario{
     font-display: flex;
-    border: 5px solid green;
 }
+
+.formcontrol{
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid rgb(161, 158, 158);
+    padding: 0.4rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.formcontrolnumber{
+    border: 1px solid rgb(161, 158, 158);
+    padding: 0.4rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.formcontrolnumber::-webkit-inner-spin-button,
+.formcontrolnumber::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .d {
     display: flex;
 }
-.formulario input {
-    width: 100%;
-}
 
+.formulario textarea{
+    border: 1px solid rgb(161, 158, 158);
+    padding: 0.4rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.divpropietario {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
 .divdetalles {
-    padding: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
 .divubicacion {
-    padding: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+.formtextarea{
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* button add */
+.divbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.buttonForm{
+    border: none;
+    font-size: 1.3rem;
+    background-color: rgb(38, 95, 219);
+    height: 4rem;
+    width: 40%;
+    border-radius: 10px;
+    color: white;
+}
+.buttonForm:hover {
+    background-color: rgb(103, 103, 240);
+}
+
+/* parte de imagenes */
+.inputimages{
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid rgb(161, 158, 158);
+    padding: 0.4rem;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.warning {
+    color: red;
+}
+
+.images{
+    height: 70%;
+}
+.image {
+    padding: 0.5rem;
 }

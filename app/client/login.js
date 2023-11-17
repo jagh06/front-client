@@ -67,7 +67,7 @@ const Login = () => {
               </div>
               <div>
                 <input
-                  type="email"
+                  type="password"
                   id="password_field"
                   className="form-control"
                   value={password}
