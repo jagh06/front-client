@@ -1,0 +1,38 @@
+.divprincipal{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.divprivacy {
+    margin: 3rem;
+    width: 50%;
+}
+.divprivacy p{
+    text-align: justify;
+    width: 600px;
+}
+.divprivacy span {
+    color: blue;
+}
+
+.divbutton{
+   
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.buttonsig {
+    margin: 2rem;
+    border: none;
+    background-color: rgb(38, 95, 219);
+    height: 3rem;
+    width: 30%;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.buttonsig:hover {
+    background-color: rgb(20, 68, 172);
+}

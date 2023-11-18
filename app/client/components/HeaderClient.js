@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../../styles/dashboard/HeaderClient.module.css";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
 import styleDrop from "../../styles/dropdown/Dropdown.module.css";
 import { AiOutlineUser } from "react-icons/ai";
@@ -15,23 +15,22 @@ const HeaderClient = () => {
   const imgRef = useRef();
 
   const router = useRouter();
-  const currentRoute = router.pathname;
+  const pathname = usePathname();
+  console.log(pathname);
   const [initialName, setInitialName] = useState("");
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
-
   const { user, logout } = useAuth();
 
   useEffect(() => {
     if (user) {
-      setEmail(user.email)
-      setName(user.name)
+      setEmail(user.email);
+      setName(user.name);
       setInitialName(user.email[0]);
     }
   }, [user]);
-
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -56,9 +55,9 @@ const HeaderClient = () => {
             </Link>
             <nav className={styles.navegacion}>
               <Link
-                href={`/client/dashboard/content-manager`}
+                href={"/client/dashboard/content-manager"}
                 className={
-                  currentRoute === `/client/dashboard/content-manager`
+                  pathname === "/client/dashboard/content-manager"
                     ? styles.active
                     : styles.nonActive
                 }
@@ -66,9 +65,9 @@ const HeaderClient = () => {
                 Pagina de Inicio
               </Link>
               <Link
-                href={`/client/dashboard/add-lodging`}
+                href={"/client/dashboard/add-lodging"}
                 className={
-                  currentRoute === `/client/dashboard/add-lodging`
+                  pathname === "/client/dashboard/add-lodging"
                     ? styles.active
                     : styles.nonActive
                 }
@@ -76,9 +75,9 @@ const HeaderClient = () => {
                 Agregar hotel
               </Link>
               <Link
-                href={`/client/dashboard/my-lodging`}
+                href={"/client/dashboard/my-lodging"}
                 className={
-                  currentRoute === `/client/dashboard/my-lodging`
+                  pathname === "/client/dashboard/my-lodging"
                     ? styles.active
                     : styles.nonActive
                 }
@@ -113,9 +112,7 @@ const HeaderClient = () => {
 
                             <div className={styleDrop.divnameemail}>
                               <p className={styleDrop.username}>{name}</p>
-                              <p className={styleDrop.useremail}>
-                                {email}
-                              </p>
+                              <p className={styleDrop.useremail}>{email}</p>
                             </div>
                           </div>
                         </span>
@@ -133,7 +130,7 @@ const HeaderClient = () => {
                         </li>
                         <li
                           onClick={() => {
-                            logout()
+                            logout();
                           }}
                         >
                           <span className={styleDrop.link}>

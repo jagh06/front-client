@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
       login(tokenExists);
     } else {
       console.log("No hay Token")
-      router.push('/')
     }
   }, []);
 

@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import { setCookie } from "./app/utils/cookie";
 
 export async function middleware(request, res) {
+
   const jwt = request.cookies.get("myToken");
   console.log("JWT ALMACENADA EN COOKIE", jwt);
 

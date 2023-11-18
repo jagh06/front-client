@@ -29,7 +29,6 @@ const AddLodging = () => {
 
   useEffect(() => {
     if (user) {
-      console.log(user.lastname)
       setName(user.name);
       setLastName(user.lastname);
       setEmail(user.email);

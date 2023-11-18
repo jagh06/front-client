@@ -1,4 +1,7 @@
-
+.footerlogin{
+padding-bottom: 2rem;
+padding-top: 2rem;
+}
 .links {
     margin: 0 auto;
     display: flex; 

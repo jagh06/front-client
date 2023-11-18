@@ -8,9 +8,9 @@ const FooterClient = () => {
     <footer className={styles.footer}>
         <div className={`contenedor ${styles.contenido}`}>
             <nav className={styles.navegacion}>
-                <Link href="/">Nosotros</Link>
-                <Link href="/">¿Dudas?</Link>
-                <Link href="/">Politica de privacidad</Link>
+                <Link href="">Nosotros</Link>
+                <Link href="">¿Dudas?</Link>
+                <Link href="../privacy">Politica de Privacidad</Link>
             </nav>
             <p className={styles.copyright}>Todos los derechos reservados</p>
         </div>

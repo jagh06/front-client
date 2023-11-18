@@ -8,7 +8,6 @@ import { useAuth } from "@/app/context/AuthContext";
 
 const Dashboard = () => {
   const { user } = useAuth();
-  console.log(user)
 
   const [name, setName] = useState("");
   const router = useRouter();
@@ -24,21 +23,13 @@ const Dashboard = () => {
     router.push("/client/dashboard/add-lodging");
   };
 
-  const handleProfile = async () => {
-    const response = await axios.get(
-      "http://localhost:3001/api/clients/profile"
-    );
-    console.log(response);
-  };
-
   return (
     <LayoutClient>
       <main className="contenedor">
         <div>
-          <button onClick={() => handleProfile()}>get profile</button>
           <h2>Bienvenido <span>{name}</span></h2>
           <div className={styles.card}>
-            <p>Agrega tu hotel y disfruta de los beneficios que ofrece TS</p>
+            <p>Agrega tu hotel y disfruta de los beneficios que ofrece Turingo Space</p>
             <button className={styles.button} onClick={handleClick}>
               Agregar hotel
             </button>

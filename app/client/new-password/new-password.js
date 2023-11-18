@@ -1,39 +1,23 @@
 "use client";
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/register/registerclient.module.css";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { baseURL } from "@/baseUrl";
-import { setCookie } from "@/app/utils/cookie";
 
-const SetPassword = () => {
-  const [accepted, setAccepted] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-
+const NewPassword = () => {
+  const router = useRouter();
+  const [ email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rpassword, setPasswordRepeat] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passwordRepeatError, setPasswordRepeatError] = useState("");
-  const [errorAcepted, setErrorAcepted] = useState("");
-
   const [errorOne, setErrorOne] = useState(false);
   const [errorTwo, setErrorTwo] = useState(false);
-  
-
-  const router = useRouter();
 
   //waosnt
   useEffect(() => {
-    const datas = localStorage.getItem("setDatas");
+    const datas = localStorage.getItem("mailAdded");
     const datasAdded = JSON.parse(datas);
-    setEmail(datasAdded.email);
-    setName(datasAdded.name);
-    setLastName(datasAdded.lastname);
-    setPhone(datasAdded.phone);
+    setEmail(datasAdded);
   }, []);
 
   const handlePasswordChange = (e) => {
@@ -73,29 +57,17 @@ const SetPassword = () => {
     }
   };
 
-  const handleAcceptance = () => {
-    setAccepted(true);
-  };
-
   const handleFormSubmits = async (e) => {
     e.preventDefault();
-    onSubmit({ name, lastname, email, password });
+    onSubmit({ password });
   };
 
   const onSubmit = async (query) => {
     try {
       if (errorOne != true && errorTwo != true) {
-        if (accepted == true) {
-          await submitDataToBackend({
-            name: name,
-            lastname: lastname,
-            email: email,
-            phone: phone,
-            password: rpassword,
-          });
-        }else{
-          setErrorAcepted("Para continuar tienes que aceptar los terminos y condiciones.")
-        }
+        await submitDataToBackend({
+          password: query,
+        });
       } else {
         return null;
       }
@@ -115,16 +87,9 @@ const SetPassword = () => {
     });
 
     if (response.ok) {
-      const data = await response.json();
-      const token = data.data.token;
-      setCookie("myToken", token);
-      const email = data.data.user.email;
-      //document.cookie = `token=${token}; path=/`;
-      //router.push("new-account");
-      localStorage.setItem("myEmail", JSON.stringify(email));
-      router.push("./new-account");
+      //router.push("/");
     } else {
-      console.log("error al agregar usuario");
+      console.log("error al actualizar contraseña");
     }
   };
 
@@ -133,7 +98,7 @@ const SetPassword = () => {
       <div className={styles.registerclient}>
         <div className={styles.backgroung}>
           <form className={styles.form} onSubmit={handleFormSubmits}>
-            <h3>Crea una contraseña</h3>
+            <h3>Crea una contraseña para {email}</h3>
             <p>
               La contraseña debe tener mínimo 8 carácteres que incluyan
               mayusculas, minusculas y numeros.
@@ -171,24 +136,10 @@ const SetPassword = () => {
             {passwordRepeatError && (
               <div className={styles.warning}>{passwordRepeatError}</div>
             )}
-            <div className={styles.aceptarcondiciones}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={accepted}
-                  onChange={handleAcceptance}
-                />
-                Acepto los{" "}
-                <Link href="../client/privacy">terminos y condiciones</Link>.
-              </label>
-              {errorAcepted && (
-                <div className={styles.warning}>{errorAcepted}</div>
-              )}
-            </div>
 
             <div className={styles.divbutton}>
               <button type="submit" className={styles.button}>
-                Crear cuenta
+                Actualizar contraseña
               </button>
             </div>
           </form>
@@ -198,4 +149,4 @@ const SetPassword = () => {
   );
 };
 
-export default SetPassword;
+export default NewPassword;
