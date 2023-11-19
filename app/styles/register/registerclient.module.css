@@ -79,6 +79,10 @@
     width: 40%;
     color: red;
 }
+.mesaggeExistsSearchEmail {
+    width: 90%;
+    color: red;
+}
 .warning {
     color: red;
     font-size: 13px;

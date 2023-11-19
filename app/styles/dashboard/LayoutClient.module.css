@@ -13,3 +13,26 @@
 .divchildren {
     padding: 10rem 0rem 15rem 0rem;
 }
+.bodymsg{
+    height: 30rem;
+    font-size: 15px;
+}
+.bodymsg span{
+    font-size: 15px;
+    color: blue
+}
+
+.bodymsgverificationemail{
+    height: 10rem;
+    width: 100%;
+}
+
+.verificando{
+    font-size: 4rem;
+    color: rgb(107, 107, 209);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

@@ -1,11 +1,11 @@
 import React from 'react'
 import LayoutRegister from '../Layout'
-import ClaveProporcionada from './clave'
+import ForgotPasswordClientsTS from './forgot-password-clients-ts'
 
 const Page = () => {
   return (
     <LayoutRegister>
-        <ClaveProporcionada />
+        <ForgotPasswordClientsTS />
     </LayoutRegister>
   )
 }
