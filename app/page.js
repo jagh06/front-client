@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles/login/Login.module.css";
-import LoginInfo from "./client/components/FooterLogin";
 import { authenticateUser } from "./utils/auth";
 import { setCookie } from "./utils/cookie";
 import { useRouter } from "next/navigation";
@@ -27,7 +26,7 @@ const MyApp = () => {
       if (userData) {
         let token = userData.data.token;
         login(token);
-        setCookie("myToken", token);
+        setCookie("myToken", token, { expires: 1 });
         router.push("/client/dashboard/content-manager");
       } else {
         setNoAuthenticate("Las Credenciales No Coinciden.");
@@ -84,7 +83,10 @@ const MyApp = () => {
                 </div>
 
                 <div className={styles.recuperar}>
-                  <Link className={styles.linkrecuperar} href="/client/search-email">
+                  <Link
+                    className={styles.linkrecuperar}
+                    href="/client/search-email"
+                  >
                     <p>¿Recuperar contraseña?</p>
                   </Link>
                 </div>

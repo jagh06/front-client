@@ -45,7 +45,7 @@ const SearchEmail = () => {
           "http://localhost:3001/api/clients/recover",
           { email }
         );
-        router.push("./clave");
+        router.push("./msg-set-verification-link");
         return response.data;
       } else {
         setErrorAdd("Esta cuenat no esta registrada en Turingo Space");

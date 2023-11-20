@@ -2,10 +2,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/register/registerclient.module.css";
 import { useRouter } from "next/navigation";
+import { getCookie, removeCookie } from "@/app/utils/cookie";
+import axios from "axios";
+import { jwtVerify } from "jose";
 
 const NewPassword = () => {
   const router = useRouter();
-  const [ email, setEmail] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [idUser, setIdUser] = useState("");
+  const [tokenAuthorize, setTokenForAuthorize] = useState("");
+
   const [password, setPassword] = useState("");
   const [rpassword, setPasswordRepeat] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -13,17 +20,9 @@ const NewPassword = () => {
   const [errorOne, setErrorOne] = useState(false);
   const [errorTwo, setErrorTwo] = useState(false);
 
-  //waosnt
-  useEffect(() => {
-    const datas = localStorage.getItem("mailAdded");
-    const datasAdded = JSON.parse(datas);
-    setEmail(datasAdded);
-  }, []);
-
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-
     if (newPassword.length < 8) {
       setPasswordError("La contraseña debe tener al menos 8 caracteres.");
       setErrorOne(true);
@@ -57,16 +56,49 @@ const NewPassword = () => {
     }
   };
 
-  const handleFormSubmits = async (e) => {
-    e.preventDefault();
-    onSubmit({ password });
+  //obtener token y validar
+
+  useEffect(() => {
+    const myTemporaryCookieToResetPassword = getCookie(
+      "secure_token_restaurate_the_password"
+    );
+
+    if (!myTemporaryCookieToResetPassword) {
+      router.push("/");
+    } else {
+      payloadToken(myTemporaryCookieToResetPassword);
+      setTokenForAuthorize(myTemporaryCookieToResetPassword);
+    }
+  }, []);
+
+  const payloadToken = async (token) => {
+    try {
+      const { payload } = await jwtVerify(
+        token,
+        new TextEncoder().encode("keymasterjagh06")
+      );
+      setEmail(payload.email);
+      setIdUser(payload._id);
+    } catch (error) {
+      router.push("/");
+      console.log(error);
+    }
   };
 
-  const onSubmit = async (query) => {
+  const handleFormSubmits = async (e) => {
+    e.preventDefault();
+    const idUserToken = idUser;
+    const token = tokenAuthorize;
+    onSubmit({ idUserToken, password, token });
+  };
+
+  const onSubmit = async (data) => {
     try {
       if (errorOne != true && errorTwo != true) {
         await submitDataToBackend({
-          password: query,
+          id: data.idUserToken,
+          password: data.password,
+          token: data.token,
         });
       } else {
         return null;
@@ -77,17 +109,22 @@ const NewPassword = () => {
   };
 
   const submitDataToBackend = async (data) => {
-    const response = await fetch(`${baseURL}/clients`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
+    const response = await axios.put(
+      `http://localhost:3001/api/clients/resetpassword/${data.id}`,
+      { password: data.password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${data.token}`,
+        },
+      }
+    );
 
-    if (response.ok) {
-      //router.push("/");
+    console.log(response);
+    if (response.status === 200) {
+      console.log("contraseña restaurada");
+      removeCookie("secure_token_restaurate_the_password")
+      router.push("/");
     } else {
       console.log("error al actualizar contraseña");
     }

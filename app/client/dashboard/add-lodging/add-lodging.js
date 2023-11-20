@@ -61,7 +61,6 @@ const AddLodging = () => {
 
     if (selectedFiles.length === 0) {
       setWarningImage("Selecciona una imagen antes de enviar el formulario");
-      console.log("Selecciona una imagen antes de enviar el formulario");
       return;
     }
 

@@ -12,11 +12,12 @@ const NewAccount = () => {
 
   useEffect(() => {
     const getEmail = localStorage.getItem("myEmail");
+    localStorage.removeItem("setDatas");
     const mail = JSON.parse(getEmail);
     setEmail(mail);
 
     if (!mail) {
-      router.push("/client/login");
+      router.push("/");
     }
 
     //clean localstorage
