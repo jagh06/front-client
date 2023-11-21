@@ -12,7 +12,7 @@ const ClaveProporcionada = () => {
     const emailAdd = localStorage.getItem("mailAdded");
     const data = JSON.parse(emailAdd);
     setEmailAdded(data);
-  });
+  }, []);
 
   let textoOriginal = emailAdded;
   let chars = 4;

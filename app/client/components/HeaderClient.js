@@ -13,8 +13,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 const HeaderClient = () => {
   const menuRef = useRef();
   const imgRef = useRef();
-
-  const router = useRouter();
+  
   const pathname = usePathname();
   console.log(pathname);
   const [initialName, setInitialName] = useState("");

@@ -1,0 +1,52 @@
+.main h2{
+    margin-left: 2rem;
+}
+
+.h2center {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.plandivs {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.divplan {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 30%;
+    margin: 2rem;
+    border: 1px solid rgb(179, 174, 174);
+    background-color: rgb(236, 229, 229);
+}
+.pe {
+    font-size: 16px;
+}
+.prices {
+    font-size: 2rem;
+    color: blue;
+}
+
+.buttonSelect {
+    border: none;
+    font-size: 1.3rem;
+    background-color: rgb(38, 95, 219);
+    height: 4rem;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.buttonSelect:hover {
+    padding: 6px 6px;
+    background-color: rgb(25, 65, 151);
+    cursor: pointer;
+}
+.spnamxn{
+    font-size: 2rem;
+    color: black;
+}
