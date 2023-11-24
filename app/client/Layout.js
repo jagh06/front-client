@@ -15,12 +15,12 @@ const LayoutRegister= ({ children }) => {
       <div className={styles.layoutclient}>
         <header className={styles.header}>
           <div>
-            <div>
+            <div className={styles.image}>
               <Link href="/">
                 <Image
                   width={120}
                   height={60}
-                  src="../../next.svg"
+                  src="../../logo.svg"
                   alt="Image logo"
                 />
               </Link>

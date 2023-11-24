@@ -1,6 +1,6 @@
 /* is active? non active?*/
 .nonActive {
-    color: white;
+    color: rgb(53, 50, 50);
 }
 .active {
     color: rgb(73, 132, 241);
@@ -8,9 +8,10 @@
 
 /* */
 .header {
+    border-bottom: 1px solid rgb(207, 203, 203);
     background-size: cover;
     background-position: 50%;
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(255, 255, 255);
     padding: 5px;
 }
 .headerclient{

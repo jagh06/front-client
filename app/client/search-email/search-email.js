@@ -48,7 +48,7 @@ const SearchEmail = () => {
         router.push("./msg-set-verification-link");
         return response.data;
       } else {
-        setErrorAdd("Esta cuenat no esta registrada en Turingo Space");
+        setErrorAdd("Esta cuenta no esta registrada en Turingo Space");
       }
     } catch (error) {
       console.error(error);

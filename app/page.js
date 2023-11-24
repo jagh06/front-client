@@ -46,7 +46,7 @@ const MyApp = () => {
                 layout="responsive"
                 width={300}
                 height={300}
-                src="next.svg"
+                src="logo.svg"
                 alt="Image logo"
               />
             </div>

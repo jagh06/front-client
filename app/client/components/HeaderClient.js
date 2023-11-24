@@ -48,7 +48,7 @@ const HeaderClient = () => {
               <Image
                 width={120}
                 height={60}
-                src="../../next.svg"
+                src="../../logo.svg"
                 alt="Image logo"
               />
             </Link>
@@ -61,9 +61,9 @@ const HeaderClient = () => {
                     : styles.nonActive
                 }
               >
-                Pagina de Inicio
+                Home
               </Link>
-              <Link
+              {/* <Link
                 href={"/client/dashboard/add-lodging"}
                 className={
                   pathname === "/client/dashboard/add-lodging"
@@ -82,7 +82,7 @@ const HeaderClient = () => {
                 }
               >
                 Mi hospedaje
-              </Link>
+              </Link> */}
             </nav>
           </div>
 
@@ -124,7 +124,13 @@ const HeaderClient = () => {
                         <li>
                           <Link className={styleDrop.link} href="">
                             <MdCardTravel size={20} />
-                            <p>Mi hospedaje</p>
+                            <p>Lista de reservados</p>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className={styleDrop.link} href="">
+                            <MdCardTravel size={20} />
+                            <p>Mi plan</p>
                           </Link>
                         </li>
                         <li

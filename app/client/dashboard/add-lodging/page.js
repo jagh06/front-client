@@ -1,5 +1,6 @@
 import React from 'react'
 import AddLodging from './add-lodging'
+import LayoutClient from '../../components/LayoutClient'
 
 export const metadata = {
   title: 'Agregar Hospedaje',
@@ -8,7 +9,11 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <AddLodging />
+    <LayoutClient>
+      <main className='contenedor'>
+      <AddLodging />
+      </main>
+    </LayoutClient>
   )
 }
 

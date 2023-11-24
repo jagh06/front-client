@@ -82,7 +82,7 @@ const SetDatas = () => {
             </div>
 
             <div className={styles.field}>
-              <p>Número de Telefono</p>
+              <p>Número de Teléfono</p>
               <div className={styles.divinput}>
                 <span>+52</span>
                 <input

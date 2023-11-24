@@ -1,5 +1,6 @@
 .footer {
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(255, 253, 253);
+    border-top: 1px solid rgb(197, 195, 195);
     
 }
 
@@ -25,7 +26,7 @@
 
 .navegacion a {
     font-size: 2rem;
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: 550;
     font-size: 1rem;
@@ -37,6 +38,6 @@
 
 .copyright {
     font-size: 1rem;
-    color: white;
+    color: rgb(10, 10, 10);
     text-align: center;
 }

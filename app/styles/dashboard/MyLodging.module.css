@@ -1,0 +1,29 @@
+.block {
+    display: block;
+}
+
+.contenedor {
+    display: flex;
+}
+.ab {
+    display: flex;
+    width: 50%;
+    margin: 1rem;
+}
+.cd{
+    width: 50%;
+    margin-left: 10px;
+}
+.item {
+    color: rgb(129, 125, 125);
+}
+.items {
+    margin-bottom: 3rem;
+}
+.mihospedajes{
+    margin-left: 3rem;
+}
+.imagesimages{
+    height: 30rem; /* ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+}

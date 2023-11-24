@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const AddLodging = () => {
-  const route = useRouter();
+  const router = useRouter();
 
   const [nameowner, setName] = useState("");
   const [lastnameowner, setLastName] = useState("");
@@ -31,15 +31,38 @@ const AddLodging = () => {
   const { user } = useAuth();
 
   useEffect(() => {
+    const tokenExists = getCookie("myToken");
     if (user) {
       setName(user.name);
       setLastName(user.lastname);
       setEmail(user.email);
+
+      const fetchDataStripe = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:3001/api/hotels/email/${user.email}`,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${tokenExists}`,
+              },
+            }
+          );
+          //setSubs(response.data);
+          if (!response.data.data || response.data.data.length > 0) {
+            router.push("./administration-panel")
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchDataStripe();
     }
   }, [user]);
 
   const handleFileChange = (e) => {
-    const filesArray = Array.from(e.target.files);
+    const filesArray = Array.from(e.target.files).slice(0, 5);
+    console.log(filesArray);
     setSelectedFiles(filesArray);
 
     const previews = filesArray.map((file) => {
@@ -97,187 +120,167 @@ const AddLodging = () => {
         }
       );
       console.log("Respuesta del servidor:", response.data);
+      router.push("./my-lodging");
     } catch (error) {
       console.error("Error al enviar los datos y las imágenes:", error);
     }
   };
 
-  const suscripcionSubmit = () => {
-    route.push("./customer-suscripcion");
-  };
-
   return (
-    <LayoutClient pagina="Add Lodging">
-      <main className="contenedor">
-        <div className={styles.divform}>
-          <form className={styles.formulario} onSubmit={handleFormSubmit}>
-            <div className={styles.d}>
-              <div className={styles.divsone}>
-                <div className={styles.divpropietario}>
-                  <h3>Propietario</h3>
-                  <input
-                    type="text"
-                    id="name"
-                    value={nameowner}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Nombre"
-                    className={styles.formcontrol}
-                    required
-                  />
-                  <input
-                    type="text"
-                    id="lasname"
-                    value={lastnameowner}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Apellidos"
-                    className={styles.formcontrol}
-                    required
-                  />
-                  <input
-                    type="email"
-                    id="email"
-                    value={emailowner}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                    className={styles.formcontrol}
-                    required
-                  />
-                </div>
-                <div className={styles.divdetalles}>
-                  <h3>Detalles del Hotel</h3>
-                  <input
-                    type="text"
-                    id="nameHotel"
-                    value={namehotel}
-                    onChange={(e) => setNameHotel(e.target.value)}
-                    placeholder="Nombre del hotel"
-                    className={styles.formcontrol}
-                    required
-                  />
-                  <textarea
-                    rows="6"
-                    name="description"
-                    id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Descripcion"
-                    className={styles.formtextarea}
-                    required
-                  ></textarea>
-                  <input
-                    type="number"
-                    id="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="Precio por habitacon"
-                    className={styles.formcontrolnumber}
-                    required
-                  />
-                  <input
-                    type="text"
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Telefono"
-                    className={styles.formcontrol}
-                    required
-                  />
-                </div>
-
-                <div className={styles.divubicacion}>
-                  <h3>Ubicacion del hotel</h3>
-                  <input
-                    type="number"
-                    id="cp"
-                    value={postalcode}
-                    onChange={(e) => setCP(e.target.value)}
-                    placeholder="Codigo postal"
-                    className={styles.formcontrolnumber}
-                    required
-                  />
-                  <input
-                    type="text"
-                    id="street"
-                    value={street}
-                    onChange={(e) => setStreet(e.target.value)}
-                    placeholder="Calle"
-                    className={styles.formcontrol}
-                    required
-                  />
-                  <input
-                    type="number"
-                    inputMode="numeric"
-                    id="streetNumber"
-                    value={streetnumber}
-                    onChange={(e) => setStreetNumber(e.target.value)}
-                    placeholder="Numero de Calle"
-                    className={styles.formcontrolnumber}
-                    required
-                  />
-                  <input
-                    type="text"
-                    id="city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="Ciudad"
-                    className={styles.formcontrol}
-                    required
-                  />
-                </div>
-              </div>
-              <div className={styles.divstwo}>
-                <h3>
-                  Agrega algunas fotos del hotel y habitaciones 5 imagenes
-                  maximo
-                </h3>
-                <input
-                  type="file"
-                  className={styles.inputimages}
-                  onChange={handleFileChange}
-                  multiple
-                />
-                <div className={styles.images}>
-                  {imagePreviews.map((preview, index) => {
-                    return (
-                      <Image
-                        className={styles.image}
-                        key={index}
-                        src={preview}
-                        alt={`Preview ${index}`}
-                        width={220}
-                        height={220}
-                      />
-                    );
-                  })}
-                </div>
-                {warningImage && (
-                  <div className={styles.warning}>{warningImage}</div>
-                )}
-              </div>
+    <div className={styles.divform}>
+      <form className={styles.formulario} onSubmit={handleFormSubmit}>
+        <div className={styles.d}>
+          <div className={styles.divsone}>
+            <div className={styles.divpropietario}>
+              <h3>Propietario</h3>
+              <input
+                type="text"
+                id="name"
+                value={nameowner}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Nombre"
+                className={styles.formcontrol}
+                required
+              />
+              <input
+                type="text"
+                id="lasname"
+                value={lastnameowner}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Apellidos"
+                className={styles.formcontrol}
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                value={emailowner}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className={styles.formcontrol}
+                required
+              />
+            </div>
+            <div className={styles.divdetalles}>
+              <h3>Detalles del Hotel</h3>
+              <input
+                type="text"
+                id="nameHotel"
+                value={namehotel}
+                onChange={(e) => setNameHotel(e.target.value)}
+                placeholder="Nombre del hotel"
+                className={styles.formcontrol}
+                required
+              />
+              <textarea
+                rows="6"
+                name="description"
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Descripcion"
+                className={styles.formtextarea}
+                required
+              ></textarea>
+              <input
+                type="number"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Precio por habitacon"
+                className={styles.formcontrolnumber}
+                required
+              />
+              <input
+                type="text"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Telefono"
+                className={styles.formcontrol}
+                required
+              />
             </div>
 
-            <div className={styles.divbutton}>
-              <button type="submit" className={styles.buttonForm}>
-                Agregar hospedjge
-              </button>
+            <div className={styles.divubicacion}>
+              <h3>Ubicacion del hotel</h3>
+              <input
+                type="number"
+                id="cp"
+                value={postalcode}
+                onChange={(e) => setCP(e.target.value)}
+                placeholder="Codigo postal"
+                className={styles.formcontrolnumber}
+                required
+              />
+              <input
+                type="text"
+                id="street"
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
+                placeholder="Calle"
+                className={styles.formcontrol}
+                required
+              />
+              <input
+                type="number"
+                inputMode="numeric"
+                id="streetNumber"
+                value={streetnumber}
+                onChange={(e) => setStreetNumber(e.target.value)}
+                placeholder="Numero de Calle"
+                className={styles.formcontrolnumber}
+                required
+              />
+              <input
+                type="text"
+                id="city"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="Ciudad"
+                className={styles.formcontrol}
+                required
+              />
             </div>
-          </form>
-
-          <div className={styles.divbutton}>
-            <button
-              type="submit"
-              className={styles.buttonForm}
-              onClick={suscripcionSubmit}
-            >
-              Siguiente
-            </button>
+          </div>
+          <div className={styles.divstwo}>
+            <h3>
+              Agrega algunas fotos del hotel y habitaciones 5 imagenes maximo
+            </h3>
+            <input
+              type="file"
+              className={styles.inputimages}
+              onChange={handleFileChange}
+              multiple
+            />
+            <div className={styles.images}>
+              {imagePreviews.map((preview, index) => {
+                return (
+                  <Image
+                    className={styles.image}
+                    key={index}
+                    src={preview}
+                    alt={`Preview ${index}`}
+                    width={220}
+                    height={220}
+                  />
+                );
+              })}
+            </div>
+            {warningImage && (
+              <div className={styles.warning}>{warningImage}</div>
+            )}
           </div>
         </div>
-      </main>
-    </LayoutClient>
+
+        <div className={styles.divbutton}>
+          <button type="submit" className={styles.buttonForm}>
+            Agregar hospedjge
+          </button>
+        </div>
+      </form>
+    </div>
   );
-
-
 };
 
 export default AddLodging;

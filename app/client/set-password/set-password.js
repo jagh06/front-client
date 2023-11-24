@@ -54,7 +54,19 @@ const SetPassword = () => {
       );
       setErrorOne(true);
       setErrorTwo(true);
-    } else {
+    } else if (!/[a-z]/.test(newPassword)){
+      setPasswordError(
+        "La contraseña debe tener al menos una letra en minuscula."
+      );
+      setErrorOne(true);
+      setErrorTwo(true);
+    }else if(!/[!@#$%^&*()_\-+=]/.test(newPassword)){
+      setPasswordError(
+        "La contraseña debe tener al menos una caracter especial. (ej. !#%&*)"
+      );
+      setErrorOne(true);
+      setErrorTwo(true);
+    }else {
       setPasswordError("");
       setErrorOne(false);
     }
@@ -136,7 +148,7 @@ const SetPassword = () => {
             <h3>Crea una contraseña</h3>
             <p>
               La contraseña debe tener mínimo 8 carácteres que incluyan
-              mayusculas, minusculas y numeros.
+              mayusculas, minusculas, numeros y algún carater especial (ej. %#).
             </p>
             <div className={styles.field}>
               <p>Password</p>
