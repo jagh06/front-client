@@ -45,8 +45,7 @@ const NewAccount = () => {
         </div>
         <div className={styles.spanemail}>
           <p>
-            Hemos enviado un correo al correo <span>{email}</span> con un enlace
-            de verificación.
+            Hemos enviado un enlace de confirmacion al correo <span>{email}</span>.
           </p>
         </div>
       </main>

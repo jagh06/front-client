@@ -1,0 +1,26 @@
+.div{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divprincipal{
+  
+    width: 60%;
+}
+.divprincipal p {
+    text-align: justify;
+    font-size: 1.3rem;
+
+}
+.divprincipal span {
+    color: blue;
+}
+.disculpas p{
+    text-align: justify;
+    font-size: 15px;
+}
+.disculpas {
+    padding: 10px;
+    border: 1px solid rgb(230, 67, 67);
+    background-color: rgb(238, 176, 5, 0.3);
+}

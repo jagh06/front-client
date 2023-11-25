@@ -37,6 +37,12 @@ const NewPassword = () => {
       );
       setErrorOne(true);
       setErrorTwo(true);
+    } else if (!/[!@#$%^&*()_\-+=]/.test(newPassword)) {
+      setPasswordError(
+        "La contraseña debe tener al menos una caracter especial. (ej. !#%&*)"
+      );
+      setErrorOne(true);
+      setErrorTwo(true);
     } else {
       setPasswordError("");
       setErrorOne(false);
@@ -123,7 +129,7 @@ const NewPassword = () => {
     console.log(response);
     if (response.status === 200) {
       console.log("contraseña restaurada");
-      removeCookie("secure_token_restaurate_the_password")
+      removeCookie("secure_token_restaurate_the_password");
       router.push("/");
     } else {
       console.log("error al actualizar contraseña");
@@ -137,8 +143,9 @@ const NewPassword = () => {
           <form className={styles.form} onSubmit={handleFormSubmits}>
             <h3>Crea una contraseña para {email}</h3>
             <p>
-              La contraseña debe tener mínimo 8 carácteres que incluyan
-              mayusculas, minusculas y numeros.
+              La contraseña debe tener mínimo 8 caracteres que incluyan
+              mayúsculas, minúsculas, numeros y algun caracter especial (ej.
+              $#%).
             </p>
             <div className={styles.field}>
               <p>Password</p>

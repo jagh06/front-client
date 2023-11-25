@@ -4,6 +4,7 @@
 
 .contenedor {
     display: flex;
+    
 }
 .ab {
     display: flex;
@@ -11,7 +12,7 @@
     margin: 1rem;
 }
 .cd{
-    width: 50%;
+    width: 100%;
     margin-left: 10px;
 }
 .item {
@@ -20,10 +21,65 @@
 .items {
     margin-bottom: 3rem;
 }
+.items input {
+    font-size: 1rem;
+}
 .mihospedajes{
     margin-left: 3rem;
 }
 .imagesimages{
     height: 30rem; /* ajusta la altura máxima según tus necesidades */
     overflow-y: auto;
+}
+
+/* button add */
+.divbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.buttonForm{
+    border: none;
+    font-size: 1.3rem;
+    height: 4rem;
+    width: 40%;
+    border-radius: 10px;
+    color: white;
+    background-color: blue;
+}
+.buttonForm:hover {
+    background-color: rgb(103, 103, 240);
+}
+
+.formcontrol{
+    text-decoration: none;
+    border: 1px solid rgb(161, 158, 158);
+   padding-left: 3rem;
+   
+}
+
+.formcontrolnumber{
+    border: 1px solid rgb(161, 158, 158);
+    padding-left: 3rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.formcontrolnumber::-webkit-inner-spin-button,
+.formcontrolnumber::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.formtextarea{
+    padding-left: 1rem;
+    text-decoration: none;
+    font-size: 1.1rem;
 }

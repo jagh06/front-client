@@ -115,3 +115,11 @@
 .aceptarcondiciones{
     margin-top: 1rem;
 }
+.passowrddiv {
+    display: flex;
+}
+.labelicon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

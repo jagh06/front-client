@@ -9,6 +9,7 @@ import styleDrop from "../../styles/dropdown/Dropdown.module.css";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdCardTravel } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
+import { FaCcStripe } from "react-icons/fa6";
 
 const HeaderClient = () => {
   const menuRef = useRef();
@@ -115,21 +116,21 @@ const HeaderClient = () => {
                             </div>
                           </div>
                         </span>
-                        <li>
+                        {/* <li>
                           <Link className={styleDrop.link} href="">
                             <AiOutlineUser size={20} />
                             <p>Gestionar cuenta</p>
                           </Link>
-                        </li>
+                        </li> */}
                         <li>
-                          <Link className={styleDrop.link} href="">
+                          <Link className={styleDrop.link} href="../dashboard/reservation-list">
                             <MdCardTravel size={20} />
                             <p>Lista de reservados</p>
                           </Link>
                         </li>
                         <li>
-                          <Link className={styleDrop.link} href="">
-                            <MdCardTravel size={20} />
+                          <Link className={styleDrop.link} href="../dashboard/my-subscription">
+                          <FaCcStripe size={20} />
                             <p>Mi plan</p>
                           </Link>
                         </li>

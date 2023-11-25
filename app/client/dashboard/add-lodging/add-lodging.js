@@ -29,6 +29,7 @@ const AddLodging = () => {
   const [warningImage, setWarningImage] = useState("");
 
   const { user } = useAuth();
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const tokenExists = getCookie("myToken");
@@ -109,6 +110,8 @@ const AddLodging = () => {
     });
 
     try {
+      setCargando(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       const response = await axios.post(
         "http://localhost:3001/api/hotels",
         formData,
@@ -123,6 +126,8 @@ const AddLodging = () => {
       router.push("./my-lodging");
     } catch (error) {
       console.error("Error al enviar los datos y las imágenes:", error);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -275,7 +280,7 @@ const AddLodging = () => {
 
         <div className={styles.divbutton}>
           <button type="submit" className={styles.buttonForm}>
-            Agregar hospedjge
+          {cargando ? <p>Cargando...</p> : <p>Agregar Hospedaje</p>}
           </button>
         </div>
       </form>

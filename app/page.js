@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles/login/Login.module.css";
@@ -8,6 +8,7 @@ import { setCookie } from "./utils/cookie";
 import { useRouter } from "next/navigation";
 import { useAuth } from "./context/AuthContext";
 import LayoutRegister from "./client/Layout";
+import nProgress from "nprogress";
 
 const MyApp = () => {
   const router = useRouter();
@@ -15,13 +16,18 @@ const MyApp = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cargando, setCargando] = useState(false);
 
   const [noAuthhenticate, setNoAuthenticate] = useState("");
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
+      setCargando(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const userData = await authenticateUser(email, password);
       if (userData) {
         let token = userData.data.token;
@@ -33,6 +39,8 @@ const MyApp = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -98,7 +106,7 @@ const MyApp = () => {
                 </div>
                 <div>
                   <button type="submit" className={styles.buttonsig}>
-                    Iniciar Sesion
+                  {cargando ? <p>Cargando...</p> : <p>Iniciar sesion</p>}
                   </button>
                 </div>
                 <div>

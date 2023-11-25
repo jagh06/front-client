@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { baseURL } from "@/baseUrl";
 import { setCookie } from "@/app/utils/cookie";
+import { BiShow } from "react-icons/bi";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SetPassword = () => {
   const [accepted, setAccepted] = useState(false);
@@ -22,9 +24,17 @@ const SetPassword = () => {
 
   const [errorOne, setErrorOne] = useState(false);
   const [errorTwo, setErrorTwo] = useState(false);
-  
 
   const router = useRouter();
+  const [cargando, setCargando] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleTogglePasswordRepeat = () => {
+    setShowPasswordRepeat(!showPasswordRepeat);
+  };
 
   //waosnt
   useEffect(() => {
@@ -54,19 +64,19 @@ const SetPassword = () => {
       );
       setErrorOne(true);
       setErrorTwo(true);
-    } else if (!/[a-z]/.test(newPassword)){
+    } else if (!/[a-z]/.test(newPassword)) {
       setPasswordError(
         "La contraseña debe tener al menos una letra en minuscula."
       );
       setErrorOne(true);
       setErrorTwo(true);
-    }else if(!/[!@#$%^&*()_\-+=]/.test(newPassword)){
+    } else if (!/[!@#$%^&*()_\-+=]/.test(newPassword)) {
       setPasswordError(
         "La contraseña debe tener al menos una caracter especial. (ej. !#%&*)"
       );
       setErrorOne(true);
       setErrorTwo(true);
-    }else {
+    } else {
       setPasswordError("");
       setErrorOne(false);
     }
@@ -96,6 +106,8 @@ const SetPassword = () => {
 
   const onSubmit = async (query) => {
     try {
+      setCargando(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       if (errorOne != true && errorTwo != true) {
         if (accepted == true) {
           await submitDataToBackend({
@@ -105,14 +117,18 @@ const SetPassword = () => {
             phone: phone,
             password: rpassword,
           });
-        }else{
-          setErrorAcepted("Para continuar tienes que aceptar los terminos y condiciones.")
+        } else {
+          setErrorAcepted(
+            "Para continuar tienes que aceptar los terminos y condiciones."
+          );
         }
       } else {
         return null;
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -147,20 +163,23 @@ const SetPassword = () => {
           <form className={styles.form} onSubmit={handleFormSubmits}>
             <h3>Crea una contraseña</h3>
             <p>
-              La contraseña debe tener mínimo 8 carácteres que incluyan
+              La contraseña debe tener mínimo 8 caracteres que incluyan
               mayusculas, minusculas, numeros y algún carater especial (ej. %#).
             </p>
             <div className={styles.field}>
               <p>Password</p>
-              <div>
+              <div className={styles.passowrddiv}>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password_fiel"
                   className="form_control"
                   value={password}
                   onChange={handlePasswordChange}
                   required
                 />
+                <label className={styles.labelicon}>
+                  <BiShow size={30} onClick={handleTogglePassword} />
+                </label>
               </div>
             </div>
             {passwordError && (
@@ -169,15 +188,18 @@ const SetPassword = () => {
 
             <div className={styles.field}>
               <p>Repite tu contraseña</p>
-              <div>
+              <div className={styles.passowrddiv}>
                 <input
-                  type="password"
+                  type={showPasswordRepeat ? "text" : "password"}
                   id="rpassword_fiel"
                   className="form_control"
                   value={rpassword}
                   onChange={handlePasswordRepeatChange}
                   required
                 />
+                <label className={styles.labelicon}>
+                  <BiShow size={30} onClick={handleTogglePasswordRepeat} />
+                </label>
               </div>
             </div>
             {passwordRepeatError && (
@@ -200,7 +222,7 @@ const SetPassword = () => {
 
             <div className={styles.divbutton}>
               <button type="submit" className={styles.button}>
-                Crear cuenta
+                {cargando ? <p>Cargando...</p> : <p>Crear Cuenta</p>}
               </button>
             </div>
           </form>

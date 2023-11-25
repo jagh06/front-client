@@ -11,6 +11,7 @@ const MyLodging = () => {
   const router = useRouter();
   const { user } = useAuth();
 
+  const [idhotel, setIdHotel] = useState("");
   const [name, setNameOwner] = useState("");
   const [last, setLastnameOwner] = useState("");
   const [namehotel, setNameHotel] = useState("");
@@ -38,7 +39,7 @@ const MyLodging = () => {
                 },
               }
             );
-            console.log(response.data.data[0]);
+            setIdHotel(response.data.data[0]._id);
             setNameOwner(response.data.data[0].nameowner);
             setLastnameOwner(response.data.data[0].lastnameowner);
             setNameHotel(response.data.data[0].namehotel);
@@ -58,58 +59,177 @@ const MyLodging = () => {
       }
     }
   }, [user]);
+
+  const handleFormSubmit = async (e) => {
+    const tokenExists = getCookie("myToken");
+    e.preventDefault();
+    const response = await axios.put(
+      `http://localhost:3001/api/hotels/${idhotel}`,
+      {
+        nameowner: name,
+        lastnameowner: last,
+        namehotel: namehotel,
+        description: description,
+        price: precio,
+        postalcode: cp,
+        street: calle,
+        streetnumber: numerodecalle,
+        city: ciudad,
+        phone: phone,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenExists}`,
+        },
+      }
+    );
+    if (response.status === 200) {
+      router.push("");
+    }
+  };
+
   return (
     <div className={styles.block}>
       <div className={styles.mihospedajes}>
         <h3>Mi hospedaje</h3>
       </div>
       <div className={styles.contenedor}>
-        <div className={styles.ab}>
-          <div className={styles.cd}>
-            <h3>Detalles</h3>
-            <div className={styles.items}>
-              <p className={styles.item}>Nombre del hotel</p>
-              <p>{namehotel}</p>
+        <form onSubmit={handleFormSubmit}>
+          <div className={styles.ab}>
+            <div className={styles.cd}>
+              <h3>Detalles</h3>
+              <div className={styles.items}>
+                <p className={styles.item}>Nombre del hotel</p>
+                <input
+                  type="text"
+                  id="namehotel"
+                  value={namehotel}
+                  onChange={(e) => setNameHotel(e.target.value)}
+                  placeholder="Nombre del hotel"
+                  className={styles.formcontrol}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Descripción</p>
+                <textarea
+                  rows="6"
+                  name="description"
+                  id="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Descripción"
+                  className={styles.formtextarea}
+                  required
+                ></textarea>
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Propietario</p>
+
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setNameOwner(e.target.value)}
+                  placeholder="Nombre de propietario"
+                  className={styles.formcontrol}
+                  required
+                />
+                <input
+                  type="text"
+                  id="lastname"
+                  value={last}
+                  onChange={(e) => setLastnameOwner(e.target.value)}
+                  placeholder="Apellidos"
+                  className={styles.formcontrol}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Precio</p>
+                <input
+                  type="number"
+                  id="precio"
+                  value={precio}
+                  onChange={(e) => setPrecio(e.target.value)}
+                  placeholder="Precio por dia"
+                  className={styles.formcontrolnumber}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Teléfono</p>
+                <input
+                  type="number"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Teléfono"
+                  className={styles.formcontrolnumber}
+                  required
+                />
+              </div>
             </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Descripción</p>
-              <p>{description}</p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Propietario</p>
-              <p>
-                {name} {last}
-              </p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Precio</p>
-              <p>{precio}</p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Teléfono</p>
-              <p>{phone}</p>
+            <div className={styles.cd}>
+              <h3>Ubicación</h3>
+              <div className={styles.items}>
+                <p className={styles.item}>Código Postal</p>
+                <input
+                  type="number"
+                  id="cp"
+                  value={cp}
+                  onChange={(e) => setCP(e.target.value)}
+                  placeholder="Código postal"
+                  className={styles.formcontrolnumber}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Calle</p>
+                <input
+                  type="text"
+                  id="street"
+                  value={calle}
+                  onChange={(e) => setCalle(e.target.value)}
+                  placeholder="Calle"
+                  className={styles.formcontrol}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Número de calle</p>
+                <input
+                  type="number"
+                  id="streetnumber"
+                  value={numerodecalle}
+                  onChange={(e) => setNumCalle(e.target.value)}
+                  placeholder="Número de calle"
+                  className={styles.formcontrolnumber}
+                  required
+                />
+              </div>
+              <div className={styles.items}>
+                <p className={styles.item}>Ciudad</p>
+                <input
+                  type="text"
+                  id="city"
+                  value={ciudad}
+                  onChange={(e) => setCiudad(e.target.value)}
+                  placeholder="Ciudad"
+                  className={styles.formcontrol}
+                  required
+                />
+              </div>
             </div>
           </div>
-          <div className={styles.cd}>
-            <h3>Ubicación</h3>
-            <div className={styles.items}>
-              <p className={styles.item}>Código Postal</p>
-              <p>{cp}</p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Calle</p>
-              <p>{calle}</p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Número de calle</p>
-              <p>{numerodecalle}</p>
-            </div>
-            <div className={styles.items}>
-              <p className={styles.item}>Ciudad</p>
-              <p>{ciudad}</p>
-            </div>
+          <div className={styles.divbutton}>
+            <button type="submit" className={styles.buttonForm}>
+              Actualizar
+            </button>
           </div>
-        </div>
+        </form>
+
         <div className={styles.ab}>
           <div className={styles.contenedorimages}>
             <h3>Imágenes del hotel</h3>

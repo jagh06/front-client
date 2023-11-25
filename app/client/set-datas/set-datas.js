@@ -12,6 +12,9 @@ const SetDatas = () => {
 
   const router = useRouter();
 
+  const [cargando, setCargando] = useState(false);
+ 
+
   useEffect(() => {
     const datas = localStorage.getItem("emailAdded");
     const emailAdded = JSON.parse(datas);
@@ -25,6 +28,8 @@ const SetDatas = () => {
 
   const onSubmit = async (query) => {
     try {
+      setCargando(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       const addedDatas = {
         name: name,
         lastname: lastname,
@@ -43,6 +48,8 @@ const SetDatas = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -99,7 +106,7 @@ const SetDatas = () => {
 
             <div className={styles.divbutton}>
               <button type="submit" className={styles.button}>
-                Siguiente
+                {cargando ? <p>Cargando...</p> : <p>Siguiente</p>}
               </button>
             </div>
           </form>
