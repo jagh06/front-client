@@ -14,7 +14,7 @@ import { FaCcStripe } from "react-icons/fa6";
 const HeaderClient = () => {
   const menuRef = useRef();
   const imgRef = useRef();
-  
+
   const pathname = usePathname();
   console.log(pathname);
   const [initialName, setInitialName] = useState("");
@@ -49,7 +49,7 @@ const HeaderClient = () => {
               <Image
                 width={120}
                 height={60}
-                src="../../logo.svg"
+                src="../../logologo.png"
                 alt="Image logo"
               />
             </Link>
@@ -123,14 +123,20 @@ const HeaderClient = () => {
                           </Link>
                         </li> */}
                         <li>
-                          <Link className={styleDrop.link} href="../dashboard/reservation-list">
+                          <Link
+                            className={styleDrop.link}
+                            href="../dashboard/reservation-list"
+                          >
                             <MdCardTravel size={20} />
                             <p>Lista de reservados</p>
                           </Link>
                         </li>
                         <li>
-                          <Link className={styleDrop.link} href="../dashboard/my-subscription">
-                          <FaCcStripe size={20} />
+                          <Link
+                            className={styleDrop.link}
+                            href="../dashboard/my-subscription"
+                          >
+                            <FaCcStripe size={20} />
                             <p>Mi plan</p>
                           </Link>
                         </li>

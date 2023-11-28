@@ -1,0 +1,14 @@
+.divpricipal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divlista {
+    width: 70%;
+}
+.cardinfouser {
+    background-color: rgb(116, 119, 119, 0.4);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}

@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import LayoutClient from "../../components/LayoutClient";
 import styles from "../../../styles/dashboard/AddLodging.module.css";
-import { baseURL } from "@/baseUrl";
 import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
 import { getCookie } from "@/app/utils/cookie";
