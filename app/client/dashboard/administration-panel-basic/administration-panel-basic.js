@@ -4,14 +4,10 @@ import { getCookie } from "@/app/utils/cookie";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import LayoutClient from "../../components/LayoutClient";
-import AddLodging from "../add-lodging/add-lodging";
-import MyLodging from "../my-lodging/my-lodging";
 
 const AdministrationPanel = () => {
   const router = useRouter();
   const { user } = useAuth();
-  const [lodgingAdded, setLodgingAdded] = useState();
 
   useEffect(() => {
     const tokenExists = getCookie("myToken");
@@ -47,7 +43,6 @@ const AdministrationPanel = () => {
   return (
     <div>
       <div>Esperando.......</div>
-      {/* <div>{lodgingAdded === true ? <MyLodging {...dataResponse}/> : <AddLodging />}</div> */}
     </div>
   );
 };

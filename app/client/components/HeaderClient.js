@@ -16,7 +16,6 @@ const HeaderClient = () => {
   const imgRef = useRef();
 
   const pathname = usePathname();
-  console.log(pathname);
   const [initialName, setInitialName] = useState("");
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,7 +48,7 @@ const HeaderClient = () => {
               <Image
                 width={120}
                 height={60}
-                src="../../logologo.png"
+                src="/logo.svg"
                 alt="Image logo"
               />
             </Link>

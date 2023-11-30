@@ -4,6 +4,9 @@
 
 .contenedor {
     display: flex;
+    border: 1px solid rgb(170, 168, 168);
+    border-radius: 5px;
+    margin-bottom: 1rem;
     
 }
 .ab {
@@ -82,4 +85,16 @@
     padding-left: 1rem;
     text-decoration: none;
     font-size: 1.1rem;
+}
+.buttonaddnewlodging {
+    margin-top: 1rem;
+    width: 30%;
+    padding: 0.4rem;
+    background-color: rgb(40, 121, 9);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.buttonaddnewlodging:hover {
+    background-color: rgb(51, 97, 32);
 }

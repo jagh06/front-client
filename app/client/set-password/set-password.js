@@ -164,7 +164,7 @@ const SetPassword = () => {
             <h3>Crea una contraseña</h3>
             <p>
               La contraseña debe tener mínimo 8 caracteres que incluyan
-              mayusculas, minusculas, numeros y algún carater especial (ej. %#).
+              mayúsculas, minúsculas, números y algún carater especial (ej. %#).
             </p>
             <div className={styles.field}>
               <p>Password</p>

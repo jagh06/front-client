@@ -1,5 +1,4 @@
 import React from 'react'
-import LayoutClient from '../../components/LayoutClient'
 import Dashboard from './content-manager'
 
 export const metadata = {

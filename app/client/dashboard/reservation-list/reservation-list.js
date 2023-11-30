@@ -16,15 +16,12 @@ const ReservationList = () => {
     const payload = jwt.decode(token);
 
     fetchDatas(payload.email);
-    console.log(payload.email);
   }, []);
 
   const fetchDatas = async (data) => {
-    console.log(data);
     const response = await axios.get(
       `http://localhost:3001/api/reservaciones/emailclient/${data}`
     );
-    console.log(response.data.data);
     setDatas(response.data.data);
   };
 

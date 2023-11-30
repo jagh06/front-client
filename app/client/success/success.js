@@ -12,12 +12,16 @@ const Success = () => {
     const urlParams = new URLSearchParams(window.location.search);
     try {
       const token = urlParams.get("temporary");
+      const nickname = urlParams.get("nickname");
       setCookie("myToken", token);
       const payload = jwt.decode(token);
       if (payload._id) {
         const fetchData = async () => {
           const response = await axios.post(
-            `http://localhost:3001/api/clients/upstatesub/${payload._id}`
+            `http://localhost:3001/api/clients/upstatesub/${payload._id}`,
+            {
+              plan: nickname,
+            }
           );
           console.log(response.data.usuarioActualizado.subscribed);
           if (response.data.usuarioActualizado.subscribed === true) {

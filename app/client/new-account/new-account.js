@@ -27,12 +27,12 @@ const NewAccount = () => {
     <div>
       <header className={styles.header}>
         <div>
-          <div>
+          <div className={styles.image}>
             <Link href="/">
               <Image
                 width={120}
                 height={60}
-                src="../../next.svg"
+                src="/logo.svg"
                 alt="Image logo"
               />
             </Link>
@@ -45,7 +45,7 @@ const NewAccount = () => {
         </div>
         <div className={styles.spanemail}>
           <p>
-            Hemos enviado un enlace de confirmacion al correo <span>{email}</span>.
+            Hemos enviado un enlace de confirmación al correo <span>{email}</span>.
           </p>
         </div>
       </main>

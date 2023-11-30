@@ -7,9 +7,9 @@ import { getCookie } from "@/app/utils/cookie";
 
 const CustomerSuscripcion = () => {
   const { user } = useAuth();
-  
+
   const [datos, setData] = useState(null);
-  const [tk, setToken] = useState("")
+  const [tk, setToken] = useState("");
 
   useEffect(() => {
     const tokenExists = getCookie("myToken");
@@ -32,16 +32,16 @@ const CustomerSuscripcion = () => {
     fetchDataStripe();
   }, []);
 
-  const handleCheckout = async (id) => {
+  const handleCheckout = async (id, nickname) => {
     try {
       const response = await axios.post(
         "http://localhost:3001/api/subscriptions/strapi-checkout",
         {
           id: id,
-          token: tk
+          nickname: nickname,
+          token: tk,
         }
       );
-      console.log(response.data.url);
       window.location.href = response.data.url;
     } catch (error) {
       console.log("ERROR AL REALIZAR LA COMPRA");
@@ -57,7 +57,27 @@ const CustomerSuscripcion = () => {
 
         {datos != null ? (
           <div className={styles.plandivs}>
-            <div key={datos[0].id} className={styles.divplan}>
+            {datos.map((price) => (
+              <div key={price.id} className={styles.divplan}>
+                <div>
+                  <h3>{price.nickname}</h3>
+                  <p className={styles.prices}>
+                    <span className={styles.spnamxn}>MXN</span>
+                    {price.unit_amount / 100}.00
+                  </p>
+                  <button
+                    type="submit"
+                    className={styles.buttonSelect}
+                    onClick={() => {
+                      handleCheckout(price.id, price.nickname);
+                    }}
+                  >
+                    comprar
+                  </button>
+                </div>
+              </div>
+            ))}
+            {/* <div key={datos[0].id} className={styles.divplan}>
               <div>
                 <h3>{datos[0].nickname}</h3>
                 <p className={styles.prices}>
@@ -68,16 +88,13 @@ const CustomerSuscripcion = () => {
                   type="submit"
                   className={styles.buttonSelect}
                   onClick={() => {
-                    handleCheckout(datos[0].id);
+                    handleCheckout(datos[0].id, datos[0].nickname);
                   }}
                 >
                   comprar
                 </button>
               </div>
-            </div>
-            {/* {datos.map((price) => (
-             
-            ))} */}
+            </div> */}
           </div>
         ) : null}
       </div>

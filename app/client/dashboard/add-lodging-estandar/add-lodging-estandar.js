@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "../../../styles/dashboard/AddLodging.module.css";
+import styles from "../../../styles/dashboard/AddLodgingEstandar.module.css";
 import axios from "axios";
-import { useAuth } from "@/app/context/AuthContext";
-import { getCookie } from "@/app/utils/cookie";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { getCookie } from "@/app/utils/cookie";
+import { useAuth } from "@/app/context/AuthContext";
+import Image from "next/image";
 
-const AddLodging = () => {
+const AddLodgingEstandar = () => {
   const router = useRouter();
 
   const [nameowner, setName] = useState("");
@@ -52,12 +52,12 @@ const AddLodging = () => {
             `http://localhost:3001/api/clients/email/${user.email}`
           );
 
-          if (responseclient.data.data.plan != "basico") {
+          if (responseclient.data.data.plan != "estandar") {
             router.push("./content-manager");
           }
-       
-          if (!response.data.data || response.data.data.length > 0) {
-            router.push("./administration-panel-basic");
+
+          if (response.data.data[1]) {
+            router.push("./my-lodging-estandar");
           }
         } catch (error) {
           console.log(error);
@@ -128,7 +128,7 @@ const AddLodging = () => {
         }
       );
       console.log("Respuesta del servidor:", response.data);
-      router.push("./my-lodging");
+      router.push("./my-lodging-estandar");
     } catch (error) {
       console.error("Error al enviar los datos y las imágenes:", error);
     } finally {
@@ -293,4 +293,4 @@ const AddLodging = () => {
   );
 };
 
-export default AddLodging;
+export default AddLodgingEstandar;

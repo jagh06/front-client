@@ -10,6 +10,8 @@ const MySubscription = () => {
   const { user } = useAuth();
   const [date, setAddDate] = useState();
   const [suscrito, setSuscrito] = useState();
+  const [tipoPlan, setTipoPlan] = useState();
+  const [precio, setPrecio] = useState();
 
   useEffect(() => {
     const token = getCookie("myToken");
@@ -24,10 +26,22 @@ const MySubscription = () => {
         const diaDelMes = fecha.getDate();
         setAddDate(diaDelMes);
         setSuscrito(true);
+        const getsuscription = await axios.get(
+          `http://localhost:3001/api/clients/email/${response.data.data.email}`
+        );
+        if (getsuscription.data.data.plan === "estandar") {
+          setTipoPlan("estándar");
+          setPrecio("500");
+        }
+        if (getsuscription.data.data.plan === "basico") {
+          setTipoPlan("básico");
+          setPrecio("300");
+        }
       } else {
         setSuscrito(false);
       }
     };
+
     fetchDataStripe();
   });
   return (
@@ -38,8 +52,8 @@ const MySubscription = () => {
           <div>
             <div>
               <p>
-                Felicidades! Estas suscrito al plan básico de $300 pesos
-                mexicanos mensuales.
+                Felicidades! Estas suscrito al plan <span>{tipoPlan}</span> de
+                $<span>{precio}</span> pesos mexicanos mensuales.
               </p>{" "}
               <p>Se te estará cobrando el dia {date} de cada mes.</p>
             </div>

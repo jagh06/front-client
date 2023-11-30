@@ -25,6 +25,12 @@ const MyLodging = () => {
   const [imagenes, setImagenes] = useState([]);
 
   useEffect(() => {
+    const fetchSuscriptores = async () => {
+      const response = await axios.get(
+        "http://localhost:3001/api/subscriptions/listar-suscriptores"
+      );
+    };
+    fetchSuscriptores();
     const tokenExists = getCookie("myToken");
     if (user) {
       if (user) {
