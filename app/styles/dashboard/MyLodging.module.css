@@ -18,6 +18,28 @@
     width: 100%;
     margin-left: 10px;
 }
+@media (max-width: 768px) {
+    .ab{
+      max-width: 100%; 
+      display: block;
+    }
+    .contenedor {
+        display: block;
+    }
+    .imagesimages{
+       display: flex;
+    }
+    .imagehotel {
+        background-color: black;
+        width: 370px;
+        height: 320px;
+        margin-left: 1rem;
+    }
+    
+    .contenedorimages {
+        overflow-y: auto;
+    }
+  }
 .item {
     color: rgb(129, 125, 125);
 }
@@ -38,9 +60,8 @@
 /* button add */
 .divbutton {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2rem;
+    
+    padding-left: 2rem;
     padding-bottom: 2rem;
 }
 

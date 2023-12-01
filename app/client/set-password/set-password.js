@@ -164,10 +164,10 @@ const SetPassword = () => {
             <h3>Crea una contraseña</h3>
             <p>
               La contraseña debe tener mínimo 8 caracteres que incluyan
-              mayúsculas, minúsculas, números y algún carater especial (ej. %#).
+              mayúsculas, minúsculas, números y algún caracter especial (ej. %#$).
             </p>
             <div className={styles.field}>
-              <p>Password</p>
+              <p>Contraseña</p>
               <div className={styles.passowrddiv}>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -175,6 +175,7 @@ const SetPassword = () => {
                   className="form_control"
                   value={password}
                   onChange={handlePasswordChange}
+                  placeholder="Ingresa una contraseña"
                   required
                 />
                 <label className={styles.labelicon}>
@@ -195,6 +196,7 @@ const SetPassword = () => {
                   className="form_control"
                   value={rpassword}
                   onChange={handlePasswordRepeatChange}
+                  placeholder="Repite tu contraseña"
                   required
                 />
                 <label className={styles.labelicon}>
@@ -213,7 +215,7 @@ const SetPassword = () => {
                   onChange={handleAcceptance}
                 />
                 Acepto los{" "}
-                <Link href="../client/privacy">terminos y condiciones</Link>.
+                <Link href="../client/privacy">términos y condiciones</Link>.
               </label>
               {errorAcepted && (
                 <div className={styles.warning}>{errorAcepted}</div>

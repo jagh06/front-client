@@ -62,7 +62,7 @@ const SearchEmail = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <h3>Encuentra tu cuenta</h3>
             <div className={styles.field}>
-              <p>Ingresa tu correo electronico</p>
+              <p>Ingresa tu correo electrónico</p>
               <div>
                 <input
                   type="email"
@@ -70,6 +70,7 @@ const SearchEmail = () => {
                   className="form_control"
                   ref={emailRef}
                   value={email}
+                  placeholder="Correo electrónico"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />

@@ -5,14 +5,34 @@
     padding: 2rem;
 }
 
-.divbeneficios {
-    padding-top: 100px;
+.beneficios {
+    display: flex;
+    
 }
 
-.beneficios {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+@media (max-width: 768px) {
+    .card{
+      width: 15rem;
+
+    }
+    .divbeneficios {
+       
+        height: 30rem;
+    }
+    .cb{
+        display: block;
+        width: 50%;
+    } 
+    .beneficios {
+        display: block;
+        width: 100%;
+    }
+    .cb {
+        margin-bottom: 1rem;
+    }
 }
+
+
 
 .button {
     border: none;
@@ -29,7 +49,7 @@
 }
 
 .cb {
-    width: 30rem;
+   margin-right: 1rem;
     border-radius: 10px;
     border: 1px solid gray;
     padding: 2rem;

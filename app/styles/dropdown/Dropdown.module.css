@@ -3,7 +3,7 @@
 .iconuser {
     display: flex;
     margin-left: auto;
-    float: right;
+   
 }
 
 .imageuser {
@@ -17,6 +17,11 @@
     color: white;
     font-size: 25px;
     padding: 1rem;
+}
+@media (max-width: 768px) {
+    .imageuser {
+        float: left;
+    }
 }
 
 .imageuser:hover {

@@ -148,7 +148,7 @@ const NewPassword = () => {
               $#%).
             </p>
             <div className={styles.field}>
-              <p>Password</p>
+              <p>Contraseña</p>
               <div>
                 <input
                   type="password"
@@ -156,6 +156,7 @@ const NewPassword = () => {
                   className="form_control"
                   value={password}
                   onChange={handlePasswordChange}
+                  placeholder="Ingresa tu nueva contraseña"
                   required
                 />
               </div>
@@ -173,6 +174,7 @@ const NewPassword = () => {
                   className="form_control"
                   value={rpassword}
                   onChange={handlePasswordRepeatChange}
+                  placeholder="Repite tu contraseña"
                   required
                 />
               </div>

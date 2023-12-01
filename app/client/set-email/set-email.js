@@ -12,9 +12,8 @@ const Email = ({ onSubmit }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h3>Ingresa tu Email</h3>
+      <h3>Ingresa tu correo electrónico</h3>
       <div className={styles.field}>
-        <p>Email</p>
         <div>
           <input
             type="email"
@@ -23,6 +22,7 @@ const Email = ({ onSubmit }) => {
             ref={emailRef}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Correo electrónico"
             required
           />
         </div>

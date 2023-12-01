@@ -6,7 +6,6 @@ import styles from "../../styles/dashboard/HeaderClient.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
 import styleDrop from "../../styles/dropdown/Dropdown.module.css";
-import { AiOutlineUser } from "react-icons/ai";
 import { MdCardTravel } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
 import { FaCcStripe } from "react-icons/fa6";
@@ -45,12 +44,7 @@ const HeaderClient = () => {
         <div className={styles.headerclient}>
           <div className={styles.navbar}>
             <Link href="/">
-              <Image
-                width={120}
-                height={60}
-                src="/logo.svg"
-                alt="Image logo"
-              />
+              <Image width={120} height={60} src="/logo.svg" alt="Image logo" />
             </Link>
             <nav className={styles.navegacion}>
               <Link
@@ -63,26 +57,6 @@ const HeaderClient = () => {
               >
                 Home
               </Link>
-              {/* <Link
-                href={"/client/dashboard/add-lodging"}
-                className={
-                  pathname === "/client/dashboard/add-lodging"
-                    ? styles.active
-                    : styles.nonActive
-                }
-              >
-                Agregar hotel
-              </Link>
-              <Link
-                href={"/client/dashboard/my-lodging"}
-                className={
-                  pathname === "/client/dashboard/my-lodging"
-                    ? styles.active
-                    : styles.nonActive
-                }
-              >
-                Mi hospedaje
-              </Link> */}
             </nav>
           </div>
 
@@ -115,12 +89,7 @@ const HeaderClient = () => {
                             </div>
                           </div>
                         </span>
-                        {/* <li>
-                          <Link className={styleDrop.link} href="">
-                            <AiOutlineUser size={20} />
-                            <p>Gestionar cuenta</p>
-                          </Link>
-                        </li> */}
+
                         <li>
                           <Link
                             className={styleDrop.link}

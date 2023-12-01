@@ -2,7 +2,6 @@
 import React from "react";
 import styles from "../../../styles/dashboard/Dashboard.module.css";
 import { useRouter } from "next/navigation";
-import LayoutClient from "../../components/LayoutClient";
 
 const NoSubscribe = () => {
   const router = useRouter();
@@ -16,7 +15,7 @@ const NoSubscribe = () => {
       </h2>
       <div className={styles.card}>
         <p>
-          Agrega tu hotel y disfruta de los beneficios que ofrece Turingo Space
+          Agrega tu hotel y disfruta de los beneficios que ofrece Turingo Space.
         </p>
         <button className={styles.button} onClick={handleClick}>
           Agregar hotel

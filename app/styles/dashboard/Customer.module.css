@@ -50,3 +50,29 @@
     font-size: 2rem;
     color: black;
 }
+
+@media (max-width: 768px) {
+    .plandivs {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .divplan {
+        display: flex;
+       
+        padding: 10px;
+        font-size: 10px;
+    }
+    .divplan p {
+        padding: 10px;
+        font-size: 20px;
+    }
+    .divplan span {
+        padding: 10px;
+        font-size: 20px;
+    }
+    .divplan button {
+        font-size: 10px;
+        width: 5rem;
+    }
+}

@@ -64,7 +64,7 @@ const MyApp = () => {
                   <h2>Inicia sesión o crea una cuenta</h2>
                 </div>
                 <div>
-                  <h3>Correo electronico</h3>
+                  <h3>Correo electrónico</h3>
                 </div>
                 <div>
                   <input
@@ -73,6 +73,7 @@ const MyApp = () => {
                     className={styles.formcontrol}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Correo electrónico"
                     required
                   />
                 </div>
@@ -86,6 +87,7 @@ const MyApp = () => {
                     className={styles.formcontrol}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Contraseña"
                     required
                   />
                 </div>

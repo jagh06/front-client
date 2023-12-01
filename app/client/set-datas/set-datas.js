@@ -69,6 +69,7 @@ const SetDatas = () => {
                   className={styles.formcontrol}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  placeholder="Ingresa tu nombre"
                   required
                 />
               </div>
@@ -83,6 +84,7 @@ const SetDatas = () => {
                   className={styles.formcontrol}
                   value={lastname}
                   onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Ingresa tus apellidos"
                   required
                 />
               </div>
@@ -98,6 +100,7 @@ const SetDatas = () => {
                   className={styles.formcontrolphone}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Ingresa un número de teléfono"
                   required
                 />
               </div>

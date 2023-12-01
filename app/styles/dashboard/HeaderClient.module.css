@@ -15,12 +15,34 @@
     padding: 5px;
 }
 .headerclient{
+  
     display: flex;
     align-items: center;
 }
+@media (max-width: 768px) {
+    .headerclient {
+        margin-bottom: 1rem;
+        display: block;
+        padding-bottom: 3rem;
+    }
+    .navegacion {
+        margin-left: 0;
+        width: 100%;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+   .iconuser {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+   }
+  }
 
 .navbar {
-    padding-left: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +56,7 @@
 
 .navegacion {
     margin-top: 5rem;
-    margin-left: 5rem;
+   
     display: flex;
     gap: 2rem;
 }
@@ -42,6 +64,7 @@
 @media (min-width: 769px) {
     .navegacion {
         margin-top: 0;
+        margin-left: 0;
     }
 }
 
@@ -64,6 +87,7 @@
 
 /* si existe imagen de usuario */
 .iconuser {
+   
     /* display: grid; */
     place-items: center;
     margin-left: auto;

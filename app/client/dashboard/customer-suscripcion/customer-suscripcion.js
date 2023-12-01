@@ -77,24 +77,6 @@ const CustomerSuscripcion = () => {
                 </div>
               </div>
             ))}
-            {/* <div key={datos[0].id} className={styles.divplan}>
-              <div>
-                <h3>{datos[0].nickname}</h3>
-                <p className={styles.prices}>
-                  <span className={styles.spnamxn}>MXN</span>
-                  {datos[0].unit_amount / 100}.00
-                </p>
-                <button
-                  type="submit"
-                  className={styles.buttonSelect}
-                  onClick={() => {
-                    handleCheckout(datos[0].id, datos[0].nickname);
-                  }}
-                >
-                  comprar
-                </button>
-              </div>
-            </div> */}
           </div>
         ) : null}
       </div>

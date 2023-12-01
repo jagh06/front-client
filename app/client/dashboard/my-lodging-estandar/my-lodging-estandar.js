@@ -302,12 +302,12 @@ const MyLodgingEstandar = () => {
               <div className={styles.imagesimages}>
                 {images.map((image) => (
                   <Image
+                    className={styles.imagehotel}
                     alt="Imagen del hotel"
                     key={image.public_id}
-                    layout="responsive"
                     src={image.secure_url}
-                    width={100}
-                    height={100}
+                    width={500}
+                    height={500}
                   />
                 ))}
               </div>
@@ -457,12 +457,12 @@ const MyLodgingEstandar = () => {
                   <div className={styles.imagesimages}>
                     {imagesDos.map((image) => (
                       <Image
+                      className={styles.imagehotel}
                         alt="Imagen del hotel"
                         key={image.public_id}
-                        layout="responsive"
                         src={image.secure_url}
-                        width={100}
-                        height={100}
+                        width={500}
+                        height={500}
                       />
                     ))}
                   </div>
