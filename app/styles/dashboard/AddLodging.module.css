@@ -41,11 +41,10 @@
 
 @media (max-width: 768px) {
     .d {
-        background-color: red;
         display: block;
     }
-    .buttonForm {
-        font-size: 10px;
+    .buttonForm p {
+        font-size: 15px;
     }
 }
 
@@ -105,6 +104,19 @@
 }
 .warning {
     color: red;
+}
+
+.buttonForm{
+    border: none;
+    font-size: 1.3rem;
+    background-color: rgb(38, 95, 219);
+    height: 4rem;
+    width: 40%;
+    border-radius: 10px;
+    color: white;
+}
+.buttonForm:hover {
+    background-color: rgb(103, 103, 240);
 }
 
 .images{

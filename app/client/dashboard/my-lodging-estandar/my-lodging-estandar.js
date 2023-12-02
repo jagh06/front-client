@@ -37,8 +37,13 @@ const MyLodgingEstandar = () => {
   const [cityDos, setCiudadDos] = useState("");
   const [imagesDos, setImagenesDos] = useState([]);
 
-  const [listaHoteles, setListaHoteles] = useState("");
   const [sonDos, setSonDos] = useState(false);
+
+  const [isChecked, setDisponible] = useState(true);
+  const [cambioDisponibilidad, setCambioDisponibilidad] = useState(true);
+
+  const [isCheckedDos, setDisponibleDos] = useState(true);
+  const [cambioDisponibilidadDos, setCambioDisponibilidadDos] = useState(true);
 
   useEffect(() => {
     const tokenExists = getCookie("myToken");
@@ -55,6 +60,7 @@ const MyLodgingEstandar = () => {
               },
             }
           );
+          setDisponible(response.data.data[0].disponible);
           setIdHotel(response.data.data[0]._id);
           setNameOwner(response.data.data[0].nameowner);
           setLastnameOwner(response.data.data[0].lastnameowner);
@@ -68,6 +74,7 @@ const MyLodgingEstandar = () => {
           setCiudad(response.data.data[0].city);
           setImagenes(response.data.data[0].images);
           if (response.data.data[1]) {
+            setDisponibleDos(response.data.data[1].disponible);
             setIdHotelDos(response.data.data[1]._id);
             setNameOwnerDos(response.data.data[1].nameowner);
             setLastnameOwnerDos(response.data.data[1].lastnameowner);
@@ -90,6 +97,11 @@ const MyLodgingEstandar = () => {
     }
   }, [user]);
 
+  const handleToggle = () => {
+    setDisponible(!isChecked);
+    setCambioDisponibilidad(!isChecked);
+  };
+
   const handleFormSubmit = async (e) => {
     const tokenExists = getCookie("myToken");
     e.preventDefault();
@@ -107,6 +119,7 @@ const MyLodgingEstandar = () => {
         streetnumber: streetnumber,
         city: city,
         phone: phone,
+        disponible: cambioDisponibilidad,
       },
       {
         headers: {
@@ -118,6 +131,11 @@ const MyLodgingEstandar = () => {
     if (response.status === 200) {
       router.push("");
     }
+  };
+
+  const handleToggleDos = () => {
+    setDisponibleDos(!isCheckedDos);
+    setCambioDisponibilidadDos(!isCheckedDos);
   };
 
   const handleFormSubmitDos = async (e) => {
@@ -137,6 +155,7 @@ const MyLodgingEstandar = () => {
         streetnumber: streetnumberDos,
         city: cityDos,
         phone: phoneDos,
+        disponible: cambioDisponibilidadDos,
       },
       {
         headers: {
@@ -287,6 +306,21 @@ const MyLodgingEstandar = () => {
                     required
                   />
                 </div>
+                <div className={styles.items}>
+                  <p className={styles.item}>Disponible</p>
+                  <label className={styles.switch}>
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={handleToggle}
+                    />
+                    <span
+                      className={`${styles.slider} ${
+                        isChecked ? styles.checked : ""
+                      }`}
+                    />
+                  </label>
+                </div>
               </div>
             </div>
             <div className={styles.divbutton}>
@@ -302,9 +336,9 @@ const MyLodgingEstandar = () => {
               <div className={styles.imagesimages}>
                 {images.map((image) => (
                   <Image
+                    key={image.public_id}
                     className={styles.imagehotel}
                     alt="Imagen del hotel"
-                    key={image.public_id}
                     src={image.secure_url}
                     width={500}
                     height={500}
@@ -442,6 +476,21 @@ const MyLodgingEstandar = () => {
                         required
                       />
                     </div>
+                    <div className={styles.items}>
+                      <p className={styles.item}>Disponible</p>
+                      <label className={styles.switch}>
+                        <input
+                          type="checkbox"
+                          checked={isCheckedDos}
+                          onChange={handleToggleDos}
+                        />
+                        <span
+                          className={`${styles.slider} ${
+                            isCheckedDos ? styles.checked : ""
+                          }`}
+                        />
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div className={styles.divbutton}>
@@ -457,7 +506,7 @@ const MyLodgingEstandar = () => {
                   <div className={styles.imagesimages}>
                     {imagesDos.map((image) => (
                       <Image
-                      className={styles.imagehotel}
+                        className={styles.imagehotel}
                         alt="Imagen del hotel"
                         key={image.public_id}
                         src={image.secure_url}

@@ -23,7 +23,6 @@ const Success = () => {
               plan: nickname,
             }
           );
-          console.log(response.data.usuarioActualizado.subscribed);
           if (response.data.usuarioActualizado.subscribed === true) {
             const response = await axios.post(
               "http://localhost:3001/api/subscriptions",

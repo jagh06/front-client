@@ -24,6 +24,9 @@ const MyLodging = () => {
   const [ciudad, setCiudad] = useState("");
   const [imagenes, setImagenes] = useState([]);
 
+  const [isChecked, setDisponible] = useState(true);
+  const [cambioDisponibilidad, setCambioDisponibilidad] = useState(true);
+
   useEffect(() => {
     const fetchSuscriptores = async () => {
       const response = await axios.get(
@@ -45,6 +48,7 @@ const MyLodging = () => {
                 },
               }
             );
+            setDisponible(response.data.data[0].disponible);
             setIdHotel(response.data.data[0]._id);
             setNameOwner(response.data.data[0].nameowner);
             setLastnameOwner(response.data.data[0].lastnameowner);
@@ -66,6 +70,11 @@ const MyLodging = () => {
     }
   }, [user]);
 
+  const handleToggle = () => {
+    setDisponible(!isChecked);
+    setCambioDisponibilidad(!isChecked);
+  };
+
   const handleFormSubmit = async (e) => {
     const tokenExists = getCookie("myToken");
     e.preventDefault();
@@ -82,6 +91,7 @@ const MyLodging = () => {
         streetnumber: numerodecalle,
         city: ciudad,
         phone: phone,
+        disponible: cambioDisponibilidad
       },
       {
         headers: {
@@ -227,6 +237,21 @@ const MyLodging = () => {
                   required
                 />
               </div>
+              <div className={styles.items}>
+                  <p className={styles.item}>Disponible</p>
+                  <label className={styles.switch}>
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={handleToggle}
+                    />
+                    <span
+                      className={`${styles.slider} ${
+                        isChecked ? styles.checked : ""
+                      }`}
+                    />
+                  </label>
+                </div>
             </div>
           </div>
           <div className={styles.divbutton}>
