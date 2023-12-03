@@ -1,3 +1,3 @@
-const baseURL = "http://localhost:3001/api"
+const baseURL = "https://api-turingo.onrender.com/"
 
 export {baseURL}

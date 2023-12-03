@@ -4,6 +4,7 @@ import LayoutClient from "../../components/LayoutClient";
 import { useAuth } from "@/app/context/AuthContext";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { baseURL } from "@/baseUrl";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const Dashboard = () => {
       const fetchDataStripe = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/clients/id/${user._id}`
+            `${baseURL}api/clients/id/${user._id}`
           );
           if (response.data.data.subscribed === true) {
             if (response.data.data.plan === "basico") {

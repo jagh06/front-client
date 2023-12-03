@@ -5,6 +5,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import styles from "../../../styles/dashboard/ListaReservas.module.css";
+import { baseURL } from "@/baseUrl";
 
 const ReservationList = () => {
   const { user } = useAuth();
@@ -20,7 +21,7 @@ const ReservationList = () => {
 
   const fetchDatas = async (data) => {
     const response = await axios.get(
-      `http://localhost:3001/api/reservaciones/emailclient/${data}`
+      `${baseURL}api/reservaciones/emailclient/${data}`
     );
     setDatas(response.data.data);
   };

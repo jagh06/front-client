@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getCookie, removeCookie } from "@/app/utils/cookie";
 import axios from "axios";
 import { jwtVerify } from "jose";
+import { baseURL } from "@/baseUrl";
 
 const NewPassword = () => {
   const router = useRouter();
@@ -116,7 +117,7 @@ const NewPassword = () => {
 
   const submitDataToBackend = async (data) => {
     const response = await axios.put(
-      `http://localhost:3001/api/clients/resetpassword/${data.id}`,
+      `${baseURL}api/clients/resetpassword/${data.id}`,
       { password: data.password },
       {
         headers: {

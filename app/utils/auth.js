@@ -1,9 +1,10 @@
+import { baseURL } from "@/baseUrl";
 import axios from "axios";
 
 export const authenticateUser = async (email, password) => {
   try {
     const response = await axios.post(
-      "http://localhost:3001/api/clients/login",
+      `${baseURL}api/clients/login`,
       { email, password }
     );
     return response.data;
@@ -16,7 +17,7 @@ export const authenticateUser = async (email, password) => {
 export const verifyKeyAndEmail= async (email, password) => {
   try {
     const response = await axios.post(
-      "http://localhost:3001/api/clients/login",
+      `${baseURL}api/clients/login`,
       { email, password }
     );
     return response.data;

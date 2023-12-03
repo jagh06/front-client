@@ -133,7 +133,7 @@ const SetPassword = () => {
   };
 
   const submitDataToBackend = async (data) => {
-    const response = await fetch(`${baseURL}/clients`, {
+    const response = await fetch(`${baseURL}api/clients`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styles from "../../../styles/dashboard/MyLodging.module.css";
 import Image from "next/image";
+import { baseURL } from "@/baseUrl";
 
 const MyLodgingEstandar = () => {
   const router = useRouter();
@@ -52,7 +53,7 @@ const MyLodgingEstandar = () => {
       const fetchDataStripe = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/hotels/email/${user.email}`,
+            `${baseURL}api/hotels/email/${user.email}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -107,7 +108,7 @@ const MyLodgingEstandar = () => {
     e.preventDefault();
 
     const response = await axios.put(
-      `http://localhost:3001/api/hotels/${idhotel}`,
+      `${baseURL}api/hotels/${idhotel}`,
       {
         nameowner: nameowner,
         lastnameowner: lastnameowner,
@@ -143,7 +144,7 @@ const MyLodgingEstandar = () => {
     e.preventDefault();
 
     const response = await axios.put(
-      `http://localhost:3001/api/hotels/${idhotelDos}`,
+      `${baseURL}api/hotels/${idhotelDos}`,
       {
         nameowner: nameownerDos,
         lastnameowner: lastnameownerDos,
@@ -171,6 +172,12 @@ const MyLodgingEstandar = () => {
 
   const handleAddNewLodging = () => {
     router.push("./add-lodging-estandar");
+  };
+
+  const [newFile, setNewFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setNewFile(event.target.files[0]);
   };
 
   return (

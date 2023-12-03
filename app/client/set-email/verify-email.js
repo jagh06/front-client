@@ -3,11 +3,12 @@ import { useRouter } from "next/navigation";
 import Email from "./set-email";
 import { useState } from "react";
 import styles from "../../styles/register/registerclient.module.css";
+import { baseURL } from "@/baseUrl";
 
 
 const fetchData = async (query) => {
   const response = await fetch(
-    `http://localhost:3001/api/clients/email/${query}`
+    `${baseURL}api/clients/email/${query}`
   );
   if (response.ok) {
     const data = await response.json();

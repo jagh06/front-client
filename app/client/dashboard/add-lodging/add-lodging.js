@@ -6,6 +6,7 @@ import { useAuth } from "@/app/context/AuthContext";
 import { getCookie } from "@/app/utils/cookie";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { baseURL } from "@/baseUrl";
 
 const AddLodging = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const AddLodging = () => {
       const fetchDataStripe = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/hotels/email/${user.email}`,
+            `${baseURL}api/hotels/email/${user.email}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -49,7 +50,7 @@ const AddLodging = () => {
           );
 
           const responseclient = await axios.get(
-            `http://localhost:3001/api/clients/email/${user.email}`
+            `${baseURL}api/clients/email/${user.email}`
           );
 
           if (responseclient.data.data.plan != "basico") {
@@ -110,7 +111,6 @@ const AddLodging = () => {
     formData.append("phone", phone);
 
     selectedFiles.forEach((file, index) => {
-      console.log(file);
       formData.append(`images`, file);
     });
 
@@ -118,7 +118,7 @@ const AddLodging = () => {
       setCargando(true);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       const response = await axios.post(
-        "http://localhost:3001/api/hotels",
+       `${baseURL}api/hotels`,
         formData,
         {
           headers: {

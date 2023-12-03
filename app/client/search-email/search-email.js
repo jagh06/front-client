@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import styles from "../../styles/register/registerclient.module.css";
 import React, { useState, FormEvent, useRef } from "react";
 import axios from "axios";
+import { baseURL } from "@/baseUrl";
 
 const SearchEmail = () => {
   const [errorAdd, setErrorAdd] = useState(false);
@@ -18,7 +19,7 @@ const SearchEmail = () => {
 
   const fetchData = async (query) => {
     const response = await fetch(
-      `http://localhost:3001/api/clients/email/${query}`,
+      `${baseURL}api/clients/email/${query}`,
       {
         method: "GET",
         headers: {
@@ -42,7 +43,7 @@ const SearchEmail = () => {
       if (result.data != null) {
         const email = result.data.email;
         const response = await axios.post(
-          "http://localhost:3001/api/clients/recover",
+          `${baseURL}api/clients/recover`,
           { email }
         );
         router.push("./msg-set-verification-link");

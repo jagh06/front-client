@@ -5,6 +5,7 @@ import axios from "axios";
 import styles from "../../styles/dashboard/LayoutClient.module.css";
 import { setCookie } from "@/app/utils/cookie";
 import { jwtVerify } from "jose";
+import { baseURL } from "@/baseUrl";
 
 const ForgotPasswordClientsTS = () => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const ForgotPasswordClientsTS = () => {
   const setToken = async (token) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/clients/veriftokenjwt",
+        `${baseURL}api/clients/veriftokenjwt`,
         {
           token,
         }

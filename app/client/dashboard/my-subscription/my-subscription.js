@@ -5,6 +5,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import styles from "../../../styles/dashboard/InfoSubscription.module.css";
+import { baseURL } from "@/baseUrl";
 
 const MySubscription = () => {
   const { user } = useAuth();
@@ -19,7 +20,7 @@ const MySubscription = () => {
 
     const fetchDataStripe = async () => {
       const response = await axios.get(
-        `http://localhost:3001/api/subscriptions/${payload.email}`
+        `${baseURL}api/subscriptions/${payload.email}`
       );
       if (response.data.data) {
         const fecha = new Date(response.data.data.createdAt);
@@ -27,7 +28,7 @@ const MySubscription = () => {
         setAddDate(diaDelMes);
         setSuscrito(true);
         const getsuscription = await axios.get(
-          `http://localhost:3001/api/clients/email/${response.data.data.email}`
+          `${baseURL}api/clients/email/${response.data.data.email}`
         );
         if (getsuscription.data.data.plan === "estandar") {
           setTipoPlan("estándar");

@@ -6,6 +6,7 @@ import { getCookie } from "@/app/utils/cookie";
 import styles from "../../../styles/dashboard/MyLodging.module.css";
 import Image from "next/image";
 import axios from "axios";
+import { baseURL } from "@/baseUrl";
 
 const MyLodging = () => {
   const router = useRouter();
@@ -30,7 +31,7 @@ const MyLodging = () => {
   useEffect(() => {
     const fetchSuscriptores = async () => {
       const response = await axios.get(
-        "http://localhost:3001/api/subscriptions/listar-suscriptores"
+        `${baseURL}api/subscriptions/listar-suscriptores`
       );
     };
     fetchSuscriptores();
@@ -40,7 +41,7 @@ const MyLodging = () => {
         const fetchDataStripe = async () => {
           try {
             const response = await axios.get(
-              `http://localhost:3001/api/hotels/email/${user.email}`,
+              `${baseURL}api/hotels/email/${user.email}`,
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -79,7 +80,7 @@ const MyLodging = () => {
     const tokenExists = getCookie("myToken");
     e.preventDefault();
     const response = await axios.put(
-      `http://localhost:3001/api/hotels/${idhotel}`,
+      `${baseURL}api/hotels/${idhotel}`,
       {
         nameowner: name,
         lastnameowner: last,

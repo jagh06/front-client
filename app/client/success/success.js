@@ -5,6 +5,7 @@ import { setCookie } from "@/app/utils/cookie";
 import jwt from "jsonwebtoken";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { baseURL } from "@/baseUrl";
 
 const Success = () => {
   const router = useRouter();
@@ -18,14 +19,14 @@ const Success = () => {
       if (payload._id) {
         const fetchData = async () => {
           const response = await axios.post(
-            `http://localhost:3001/api/clients/upstatesub/${payload._id}`,
+            `${baseURL}api/clients/upstatesub/${payload._id}`,
             {
               plan: nickname,
             }
           );
           if (response.data.usuarioActualizado.subscribed === true) {
             const response = await axios.post(
-              "http://localhost:3001/api/subscriptions",
+              `${baseURL}api/subscriptions`,
               {
                 idclient: payload._id,
                 email: payload.email,

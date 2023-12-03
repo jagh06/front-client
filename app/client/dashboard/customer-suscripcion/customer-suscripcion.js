@@ -4,6 +4,7 @@ import styles from "../../../styles/dashboard/Customer.module.css";
 import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
 import { getCookie } from "@/app/utils/cookie";
+import { baseURL } from "@/baseUrl";
 
 const CustomerSuscripcion = () => {
   const { user } = useAuth();
@@ -17,7 +18,7 @@ const CustomerSuscripcion = () => {
     const fetchDataStripe = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/subscriptions/strapi-data"
+          `${baseURL}api/subscriptions/strapi-data`
         );
         if (response != null) {
           const sortedPrices = response.data.prices.data.sort(
@@ -35,7 +36,7 @@ const CustomerSuscripcion = () => {
   const handleCheckout = async (id, nickname) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/subscriptions/strapi-checkout",
+        `${baseURL}api/subscriptions/strapi-checkout`,
         {
           id: id,
           nickname: nickname,

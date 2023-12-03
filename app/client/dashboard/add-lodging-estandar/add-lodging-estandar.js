@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { getCookie } from "@/app/utils/cookie";
 import { useAuth } from "@/app/context/AuthContext";
 import Image from "next/image";
+import { baseURL } from "@/baseUrl";
 
 const AddLodgingEstandar = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const AddLodgingEstandar = () => {
       const fetchDataStripe = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/hotels/email/${user.email}`,
+            `${baseURL}api/hotels/email/${user.email}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -49,7 +50,7 @@ const AddLodgingEstandar = () => {
           );
 
           const responseclient = await axios.get(
-            `http://localhost:3001/api/clients/email/${user.email}`
+            `${baseURL}api/clients/email/${user.email}`
           );
 
           if (responseclient.data.data.plan != "estandar") {
@@ -118,7 +119,7 @@ const AddLodgingEstandar = () => {
       setCargando(true);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       const response = await axios.post(
-        "http://localhost:3001/api/hotels",
+        `${baseURL}api/hotels`,
         formData,
         {
           headers: {

@@ -4,6 +4,7 @@ import { getCookie } from "@/app/utils/cookie";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { baseURL } from "@/baseUrl";
 
 const AdministrationPanel = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const AdministrationPanel = () => {
       const fetchDataStripe = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/hotels/email/${user.email}`,
+            `${baseURL}api/hotels/email/${user.email}`,
             {
               headers: {
                 "Content-Type": "application/json",

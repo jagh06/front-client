@@ -8,7 +8,7 @@ import { setCookie } from "./utils/cookie";
 import { useRouter } from "next/navigation";
 import { useAuth } from "./context/AuthContext";
 import LayoutRegister from "./client/Layout";
-import nProgress from "nprogress";
+import { baseURL } from "@/baseUrl";
 
 const MyApp = () => {
   const router = useRouter();
@@ -19,6 +19,7 @@ const MyApp = () => {
   const [cargando, setCargando] = useState(false);
 
   const [noAuthhenticate, setNoAuthenticate] = useState("");
+
 
 
   const submitHandler = async (e) => {

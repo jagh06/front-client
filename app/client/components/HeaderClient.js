@@ -9,6 +9,7 @@ import styleDrop from "../../styles/dropdown/Dropdown.module.css";
 import { MdCardTravel } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
 import { FaCcStripe } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
 
 const HeaderClient = () => {
   const menuRef = useRef();
@@ -90,6 +91,15 @@ const HeaderClient = () => {
                           </div>
                         </span>
 
+                        <li>
+                          <Link
+                            className={styleDrop.link}
+                            href="../dashboard/my-profile"
+                          >
+                           <CgProfile size={20}/>
+                            <p>Mi perfil</p>
+                          </Link>
+                        </li>
                         <li>
                           <Link
                             className={styleDrop.link}
