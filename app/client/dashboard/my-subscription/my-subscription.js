@@ -32,7 +32,7 @@ const MySubscription = () => {
         );
         if (getsuscription.data.data.plan === "estandar") {
           setTipoPlan("estándar");
-          setPrecio("500");
+          setPrecio("600");
         }
         if (getsuscription.data.data.plan === "basico") {
           setTipoPlan("básico");
@@ -75,8 +75,8 @@ const MySubscription = () => {
                 suscripciones de manera directa y eficiente desde la aplicación.
                 Mientras tanto, si deseas cancelar tu suscripción, por favor,
                 ponte en contacto con nuestro equipo de soporte en{" "}
-                <span>turingospace.team@gmail.com</span> o bien llamar a{" "}
-                <span>9196542389</span>.
+                <span>turingospace.team@gmail.com</span> o bien llamar al número{" "}
+                <span>967 130 8015</span>.
               </p>
               <p>Gracias por ser parte de nuestra comunidad.</p>
             </div>

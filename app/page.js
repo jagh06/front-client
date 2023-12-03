@@ -116,7 +116,7 @@ const MyApp = () => {
                   <p className={styles.question}>
                     No estas registrado?{" "}
                     <Link className={styles.register} href="/client/set-email">
-                      Registrate
+                      Regístrate
                     </Link>
                   </p>
                 </div>

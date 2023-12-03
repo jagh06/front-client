@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { baseURL } from "@/baseUrl";
 import { setCookie } from "@/app/utils/cookie";
 import { BiShow } from "react-icons/bi";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SetPassword = () => {
   const [accepted, setAccepted] = useState(false);

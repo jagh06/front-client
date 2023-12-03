@@ -74,9 +74,7 @@ const MyProfile = () => {
           <p>
             Correo electronico: <span>{email}</span>
           </p>
-          <p>
-            Plan: <span>{plan}</span>
-          </p>
+          <p>Plan: {plan ? <span>{plan}</span> : <span>Sin plan</span>}</p>
         </div>
         <form onSubmit={handleFormSubmits}>
           <div className={styles.inputs}>
