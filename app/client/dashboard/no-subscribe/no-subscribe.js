@@ -1,10 +1,19 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../styles/dashboard/Dashboard.module.css";
 import { useRouter } from "next/navigation";
+import { getCookie } from "@/app/utils/cookie";
+import jwt from "jsonwebtoken";
 
 const NoSubscribe = () => {
   const router = useRouter();
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const token = getCookie("myToken");
+    const payload = jwt.decode(token);
+    setName(payload.name)
+  })
   const handleClick = () => {
     router.push("/client/dashboard/customer-suscripcion");
   };
