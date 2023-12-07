@@ -50,22 +50,22 @@ const MyApp = () => {
       <main className="contenedor">
         <div className={styles.login}>
           <div className={styles.contenido}>
-            <div className={styles.logo}>
+            {/* <div className={styles.logo}>
               <Image
                 layout="responsive"
                 width={300}
                 height={300}
-                src="logo.svg"
+                src="/logofondo.png"
                 alt="Image logo"
               />
-            </div>
+            </div> */}
             <div className={styles.formulario}>
               <form className={styles.form} onSubmit={submitHandler}>
                 <div>
-                  <h2>Inicia sesión o crea una cuenta</h2>
+                  <h2 className={styles.h2form}>Inicia sesión o crea una cuenta</h2>
                 </div>
                 <div>
-                  <h3>Correo electrónico</h3>
+                  <h3 className={styles.h3}>Correo electrónico</h3>
                 </div>
                 <div>
                   <input
@@ -79,7 +79,7 @@ const MyApp = () => {
                   />
                 </div>
                 <div>
-                  <h3>Contraseña</h3>
+                  <h3  className={styles.h3}>Contraseña</h3>
                 </div>
                 <div>
                   <input
@@ -98,7 +98,7 @@ const MyApp = () => {
                     className={styles.linkrecuperar}
                     href="/client/search-email"
                   >
-                    <p>¿Recuperar contraseña?</p>
+                    <p className={styles.registrate}>¿Recuperar contraseña?</p>
                   </Link>
                 </div>
 
@@ -114,7 +114,7 @@ const MyApp = () => {
                 </div>
                 <div>
                   <p className={styles.question}>
-                    No estas registrado?{" "}
+                    No estás registrado?{" "}
                     <Link className={styles.register} href="/client/set-email">
                       Regístrate
                     </Link>

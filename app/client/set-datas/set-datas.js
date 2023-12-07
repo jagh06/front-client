@@ -13,7 +13,6 @@ const SetDatas = () => {
   const router = useRouter();
 
   const [cargando, setCargando] = useState(false);
- 
 
   useEffect(() => {
     const datas = localStorage.getItem("emailAdded");
@@ -58,52 +57,46 @@ const SetDatas = () => {
       <div className={styles.registerclient}>
         <div className={styles.backgroung}>
           <form className={styles.form} onSubmit={handleFormSubmits}>
-            <h3>Agrega tus datos</h3>
-            <p>Email: {email}</p>
+            <h2 className={styles.h2form}>Agrega tus datos</h2>
+            <p className={styles.emailadded}>Correo electrónico: {email}</p>
             <div className={styles.field}>
-              <p>Nombre</p>
-              <div>
-                <input
-                  type="name"
-                  id="name_fiel"
-                  className={styles.formcontrol}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Ingresa tu nombre"
-                  required
-                />
-              </div>
+              <h3 className={styles.h3}>Nombre</h3>
+              <input
+                type="name"
+                id="name_fiel"
+                className={styles.formcontrol}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Ingresa tu nombre"
+                required
+              />
             </div>
 
             <div className={styles.field}>
-              <p>Apellidos</p>
-              <div>
-                <input
-                  type="name"
-                  id="lastname_fiel"
-                  className={styles.formcontrol}
-                  value={lastname}
-                  onChange={(e) => setLastName(e.target.value)}
-                  placeholder="Ingresa tus apellidos"
-                  required
-                />
-              </div>
+              <h3 className={styles.h3}>Apellidos</h3>
+              <input
+                type="name"
+                id="lastname_fiel"
+                className={styles.formcontrol}
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Ingresa tus apellidos"
+                required
+              />
             </div>
 
             <div className={styles.field}>
-              <p>Número de Teléfono</p>
-              <div className={styles.divinput}>
-                <span>+52</span>
-                <input
-                  type="text"
-                  id="phone_fiel"
-                  className={styles.formcontrolphone}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Ingresa un número de teléfono"
-                  required
-                />
-              </div>
+              <h3 className={styles.h3}>Número de Teléfono</h3>
+              <span>+52</span>
+              <input
+                type="text"
+                id="phone_fiel"
+                className={styles.formcontrolphone}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Ingresa un número de teléfono"
+                required
+              />
             </div>
             {phoneError && <div className={styles.warning}>{phoneError}</div>}
 

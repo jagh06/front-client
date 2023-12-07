@@ -39,102 +39,115 @@ const HeaderClient = () => {
     });
   }, []);
 
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <header className={styles.header}>
       <div className="contenedor">
         <div className={styles.headerclient}>
           <div className={styles.navbar}>
-            <Link href="/">
-              <Image width={120} height={60} src="/logo.svg" alt="Image logo" />
-            </Link>
-            <nav className={styles.navegacion}>
-              <Link
-                href={"/client/dashboard/content-manager"}
-                className={
-                  pathname === "/client/dashboard/content-manager"
-                    ? styles.active
-                    : styles.nonActive
-                }
-              >
-                Home
+            <div className={styles.divizquierda}>
+              <Link href="/" className={styles.lilink}>
+                <Image
+                  width={110}
+                  height={20}
+                  src="/fondo.png"
+                  alt="Image logo"
+                />
               </Link>
-            </nav>
-          </div>
-
-          <div className={styles.iconuser}>
-            {/* iconouse */}
+              <div className={styles.linkhome}>
+                <Link
+                  href={"/client/dashboard/content-manager"}
+                  className={
+                    pathname === "/client/dashboard/content-manager"
+                      ? styles.active
+                      : styles.nonActive
+                  }
+                >
+                  Home
+                </Link>
+              </div>
+            </div>
             <div>
-              <div className={styleDrop.dropbody}>
+              <div className={styles.iconuser}>
+                {/* iconouse */}
                 <div>
-                  <button
-                    className={styleDrop.imageuser}
-                    onClick={() => setOpen(!open)}
-                    ref={imgRef}
-                  >
-                    {initialName}
-                  </button>
-                </div>
-                <div>
-                  {open && (
-                    <div ref={menuRef} className={styleDrop.droplist}>
-                      <ul className={styleDrop.dropul}>
-                        <span>
-                          <div className={styleDrop.divuser}>
-                            <div className={styleDrop.divimageuserdrop}>
-                              <h3>{initialName}</h3>
-                            </div>
-
-                            <div className={styleDrop.divnameemail}>
-                              <p className={styleDrop.username}>{name}</p>
-                              <p className={styleDrop.useremail}>{email}</p>
-                            </div>
-                          </div>
-                        </span>
-
-                        <li>
-                          <Link
-                            className={styleDrop.link}
-                            href="../dashboard/my-profile"
-                          >
-                           <CgProfile size={20}/>
-                            <p>Mi perfil</p>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            className={styleDrop.link}
-                            href="../dashboard/reservation-list"
-                          >
-                            <MdCardTravel size={20} />
-                            <p>Lista de reservados</p>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            className={styleDrop.link}
-                            href="../dashboard/my-subscription"
-                          >
-                            <FaCcStripe size={20} />
-                            <p>Mi plan</p>
-                          </Link>
-                        </li>
-                        <li
-                          onClick={() => {
-                            logout();
-                          }}
-                        >
-                          <span className={styleDrop.link}>
-                            <BiLogOutCircle size={20} />
-                            <p>Cerrar Sesion</p>
-                          </span>
-                        </li>
-                      </ul>
+                  <div className={styleDrop.dropbody}>
+                    <div>
+                      <button
+                        className={styleDrop.imageuser}
+                        onClick={() => setOpen(!open)}
+                        ref={imgRef}
+                      >
+                        {initialName}
+                      </button>
                     </div>
-                  )}
+                    <div>
+                      {open && (
+                        <div ref={menuRef} className={styleDrop.droplist}>
+                          <ul className={styleDrop.dropul}>
+                            <span>
+                              <div className={styleDrop.divuser}>
+                                <div className={styleDrop.divimageuserdrop}>
+                                  <h3>{initialName}</h3>
+                                </div>
+
+                                <div className={styleDrop.divnameemail}>
+                                  <p className={styleDrop.username}>{name}</p>
+                                  <p className={styleDrop.useremail}>{email}</p>
+                                </div>
+                              </div>
+                            </span>
+
+                            <li>
+                              <Link
+                                className={styleDrop.link}
+                                href="../dashboard/my-profile"
+                              >
+                                <CgProfile size={20} />
+                                <p>Mi perfil</p>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                className={styleDrop.link}
+                                href="../dashboard/reservation-list"
+                              >
+                                <MdCardTravel size={20} />
+                                <p>Lista de reservados</p>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                className={styleDrop.link}
+                                href="../dashboard/my-subscription"
+                              >
+                                <FaCcStripe size={20} />
+                                <p>Mi plan</p>
+                              </Link>
+                            </li>
+                            <li
+                              onClick={() => {
+                                logout();
+                              }}
+                            >
+                              <span className={styleDrop.link}>
+                                <BiLogOutCircle size={20} />
+                                <p>Cerrar Sesion</p>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div></div>
           </div>
         </div>
       </div>

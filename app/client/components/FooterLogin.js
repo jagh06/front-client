@@ -5,12 +5,10 @@ const FooterLogin = () => {
   return (
         <footer className={styles.footerlogin}>
             <div className={styles.links}>
-                <Link href="">Informacion</Link>
-                <Link href="">Politica de privacidads</Link>
+                <Link href="">Información</Link>
+                <Link href="./privacy">Política de privacidad</Link>
                 <Link href="">Desarrolladores</Link>
-                <Link href="">Guia</Link>
                 <Link href="">Beneficios</Link>
-                <Link href="">Preguntas</Link>
                 <Link href="">@turingospace</Link>    
             </div>
         </footer>

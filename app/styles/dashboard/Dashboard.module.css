@@ -1,56 +1,62 @@
+
+.dashboard {
+    display: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listBeneficios {
+    width: 50%;
+    display: block;
+}
 .card {
-    width: 37rem;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid gray;
-    padding: 2rem;
+    padding: 0.5rem;
 }
 
 .beneficios {
-    display: flex;
+    display: block;
     
 }
 
-@media (max-width: 768px) {
-    .card{
-      width: 15rem;
-
-    }
-    .divbeneficios {
-       
-        height: 30rem;
-    }
-    .cb{
-        display: block;
-        width: 50%;
-    } 
-    .beneficios {
-        display: block;
-        width: 100%;
-    }
-    .cb {
-        margin-bottom: 1rem;
-    }
+.pbeneficios {
+    margin-top: 40px;
 }
 
-
+@media (max-width: 768px) {
+    .listBeneficios {
+        width: 90%;
+        display: block;
+    }
+    .button {
+        border: none;
+        border-radius: 3px;
+        background-color: rgb(42, 42, 224);
+        color: white;
+        width: 30%;
+        height: 50px;
+    }
+    
+}
 
 .button {
     border: none;
     border-radius: 5px;
     background-color: rgb(42, 42, 224);
     color: white;
-    width: 30%;
+    width: 100%;
     height: 50px;
 }
 
 .button:hover {
-    background-color: rgb(26, 26, 192);
+    background-color: rgb(65, 65, 228);
     cursor: pointer;
 }
 
 .cb {
-   margin-right: 1rem;
-    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
     border: 1px solid gray;
-    padding: 2rem;
 }

@@ -12,13 +12,13 @@ const Email = ({ onSubmit }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h3>Ingresa tu correo electrónico</h3>
+      <h3 className={styles.h3}>Correo electrónico</h3>
       <div className={styles.field}>
         <div>
           <input
             type="email"
             id="email_fiel"
-            className="form_control"
+            className={styles.formcontrol}
             ref={emailRef}
             value={email}
             onChange={(e) => setEmail(e.target.value)}

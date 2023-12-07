@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'MiFuenteLatoThin';
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .contenedor {
     padding-top: 0 auto;
     max-width: 120rem;
@@ -6,40 +12,13 @@
 }
 .registerclient {
     display: block;
-    margin: auto;
-    padding: auto;
     margin-top: 0rem;
     height: 100%;
-    position: relative;
     padding-bottom: 1rem;
     min-height: 100vh; 
 }
 
-.backgroung {
-    width: 44%;
-    align-items: center;
-    margin: 1rem auto;
-    padding-top: 2em;
-
-}
-.form {
-    border: 1px solid rgb(131, 128, 128);
-    border-radius: 5px;
-    padding: 2rem;
-    align-items: center;
-}
-
-.field p {
-    font-size: 1.4rem;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-.field div {
-    margin-top: 1.9rem;
-    padding-top: 0px;
-}
-
-.field input {
+/* .field input {
     border: 1px solid rgb(77, 76, 76);
     height: 2rem;
     width: 100%;
@@ -47,6 +26,104 @@
     border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
+} */
+
+.formcontrol{
+    padding: 8px;
+    width: 94%;
+    text-decoration: none;
+}
+.formcontrol::placeholder {
+    color: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+.formcontrolphone {
+    padding: 8px;
+    margin-left: 10px;
+    width: 77%;
+    text-decoration: none;
+}
+.formcontrolphone::placeholder {
+    color: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
+.backgroung {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    padding-top: 2em;
+}
+
+.form {
+    width: 100%;
+    border: 1px solid rgb(163, 162, 162);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+}
+.emailadded {
+    font-style: bold;
+}
+
+@media (min-width:768px) {
+    .backgroung  {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;
+        padding-top: 2em;
+    }
+    .form {
+        width: 25rem;
+        padding: 1rem;
+        align-items: center;
+    }
+     .formcontrolphone{
+        width: 84%;
+    }
+    
+}
+
+@media (min-width:480px) {
+    .backgroung  {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;
+        padding-top: 2em;
+    }
+    .form {
+        width: 25rem;
+        padding: 1rem;
+        align-items: center;
+    }
+}
+.h2form {
+    font-size: 20px;
+}
+.h3 {
+    font-size: 16px;
+    font-family: 'MiFuenteLatoThin';
+    color: black;
+}
+
+
+.field p {
+    font-size: 1.4rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.pmensaje {
+    text-align: justify;
+    font-size: 14px;
 }
 
 .divbutton {
@@ -55,12 +132,15 @@
 
 .button {
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     background-color: rgb(38, 95, 219);
-    height: 4rem;
+    height: 3rem;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .button:hover {
     background-color: rgb(86, 135, 241);
@@ -75,8 +155,13 @@
 }
 
 /* mensaje de usuario existente */
+.pmensaje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .mesaggeExists {
-    width: 40%;
+    
     color: red;
 }
 .mesaggeExistsSearchEmail {
@@ -104,14 +189,6 @@
     
 }
 
-.formcontrol{
-    text-decoration: none;
-    font-size: 1.3rem;
-}
-.formcontrolphone{
-    text-decoration: none;
-    font-size: 1.3rem;
-}
 .aceptarcondiciones{
     margin-top: 1rem;
 }

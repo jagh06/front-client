@@ -118,7 +118,7 @@ const SetPassword = () => {
           });
         } else {
           setErrorAcepted(
-            "Para continuar tienes que aceptar los terminos y condiciones."
+            "Para continuar tienes que aceptar los términos y condiciones."
           );
         }
       } else {
@@ -160,18 +160,18 @@ const SetPassword = () => {
       <div className={styles.registerclient}>
         <div className={styles.backgroung}>
           <form className={styles.form} onSubmit={handleFormSubmits}>
-            <h3>Crea una contraseña</h3>
-            <p>
+          <h2 className={styles.h2form}>Crea una contraseña</h2>
+            <p className={styles.pmensaje}>
               La contraseña debe tener mínimo 8 caracteres que incluyan
               mayúsculas, minúsculas, números y algún caracter especial (ej. %#$).
             </p>
             <div className={styles.field}>
-              <p>Contraseña</p>
+              <h3  className={styles.h3}>Contraseña</h3>
               <div className={styles.passowrddiv}>
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password_fiel"
-                  className="form_control"
+                  className={styles.formcontrol}
                   value={password}
                   onChange={handlePasswordChange}
                   placeholder="Ingresa una contraseña"
@@ -187,12 +187,12 @@ const SetPassword = () => {
             )}
 
             <div className={styles.field}>
-              <p>Repite tu contraseña</p>
+              <h3  className={styles.h3}>Repite tu contraseña</h3>
               <div className={styles.passowrddiv}>
                 <input
                   type={showPasswordRepeat ? "text" : "password"}
                   id="rpassword_fiel"
-                  className="form_control"
+                  className={styles.formcontrol}
                   value={rpassword}
                   onChange={handlePasswordRepeatChange}
                   placeholder="Repite tu contraseña"

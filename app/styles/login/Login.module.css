@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'MiFuenteLatoBlack';
+    src: url('/fonts/Lato-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MiFuenteLatoThin';
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .login {
     display: block;
     margin: auto;
@@ -8,6 +20,9 @@
     min-height: 100vh;
     
 }
+.h2form {
+    font-family: 'MiFuenteLatoBlack';
+}
 
 .contenido {
     display: grid;
@@ -15,10 +30,20 @@
     margin-top: 2rem;
    
 }
-
+.h3 {
+    font-family: 'MiFuenteLatoThin';
+    color: black;
+}
 .formcontrol{
+    padding: 5px;
+    width: 80%;
     text-decoration: none;
-    font-size: 1.3rem;
+}
+.formcontrol::placeholder {
+    color: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
 }
 
 .logo {
@@ -27,9 +52,28 @@
     margin-left: 1rem;
 }
 
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.formulario {
+    width: 100%;
+    border: 1px solid rgb(163, 162, 162);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+}
+
 @media (min-width:768px) {
     .contenido {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
     .logo {
@@ -39,14 +83,11 @@
     .login {
         padding-bottom: 10rem;
     }
-}
-
-.formulario {
-    align-items: center;
-    margin: 1rem auto;
-    margin-left: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgb(161, 155, 155);
+    .formulario {
+        width: 25rem;
+        padding: 1rem;
+        align-items: center;
+    }
 }
 
 .form {
@@ -65,7 +106,7 @@
 .form input {
     border: 1px solid rgb(77, 76, 76);
     height: 2rem;
-    width: 100%;
+    width: 96%;
     border-radius: 5px;
 }
 
@@ -83,8 +124,14 @@
     background-color: rgb(20, 68, 172);
 }
 
+.registrate {
+    font-size: 13px;
+    font-style: bold;
+}
+
 .question {
-    font-size: 18px;
+    font-size: 15px;
+    font-style: bold;
 }
 
 .register {
@@ -104,27 +151,6 @@
 .beforeafter::after {
     content: '';
     border-top: 1px double;
-}
-
-.botonGoogle {
-    height: 5rem;
-    width: 100%;
-    border-radius: 40px;
-    background-color: white;
-    align-items: center;
-    display: flex;
-    border: 1px solid rgb(77, 76, 76);
-    margin-right: 20px;
-}
-
-.botonGoogle:hover {
-    cursor: pointer;
-    background-color: rgb(252, 249, 249);
-}
-
-.botonGoogle span {
-    text-decoration: none;
-    margin: auto;
 }
 
 .svg {

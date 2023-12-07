@@ -5,11 +5,8 @@ import { useState } from "react";
 import styles from "../../styles/register/registerclient.module.css";
 import { baseURL } from "@/baseUrl";
 
-
 const fetchData = async (query) => {
-  const response = await fetch(
-    `${baseURL}api/clients/email/${query}`
-  );
+  const response = await fetch(`${baseURL}api/clients/email/${query}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -44,6 +41,8 @@ export default function SetEmail() {
       <div className={styles.registerclient}>
         <div className={styles.backgroung}>
           <Email onSubmit={handleFormSubmit} />
+        </div>
+        <div className={styles.pmensaje}>
           {registrationExists ? (
             <p className={styles.mesaggeExists}>Esta cuenta está en uso.</p>
           ) : null}

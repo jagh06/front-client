@@ -18,9 +18,9 @@ const LayoutRegister= ({ children }) => {
             <div className={styles.image}>
               <Link href="/">
                 <Image
-                  width={120}
-                  height={60}
-                  src="../../logo.svg"
+                  width={110}
+                  height={20}
+                  src="/fondo.png"
                   alt="Image logo"
                 />
               </Link>
