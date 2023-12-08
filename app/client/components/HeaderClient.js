@@ -50,7 +50,11 @@ const HeaderClient = () => {
       <div className="contenedor">
         <div className={styles.headerclient}>
           <div className={styles.navbar}>
+
+            {/* componnete izquierdo */}
             <div className={styles.divizquierda}>
+
+              {/* uno */}
               <Link href="/" className={styles.lilink}>
                 <Image
                   width={110}
@@ -59,6 +63,8 @@ const HeaderClient = () => {
                   alt="Image logo"
                 />
               </Link>
+
+              {/* dos */}
               <div className={styles.linkhome}>
                 <Link
                   href={"/client/dashboard/content-manager"}
@@ -72,7 +78,9 @@ const HeaderClient = () => {
                 </Link>
               </div>
             </div>
-            <div>
+             
+             {/* componnete derecho */}
+            <div className={styles.derecha}>
               <div className={styles.iconuser}>
                 {/* iconouse */}
                 <div>

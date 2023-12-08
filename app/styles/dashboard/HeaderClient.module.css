@@ -15,6 +15,8 @@
 
 /* */
 .header {
+    max-width: 100%;
+    overflow-x: hidden;
     border-bottom: 1px solid rgb(207, 203, 203);
     background-size: cover;
     background-position: 50%;
@@ -68,18 +70,18 @@
 
  @media (max-width: 600px) {
     .iconuser {
-     width: 2rem;
+        width: 2rem;
     }
     .divizquierda {
-     margin-right: 3rem;
+         margin-right: 3rem;
     }
  }
 @media (max-width: 768px) {
        .iconuser {
-        width: 2rem;
+            width: 2rem;
        }
        .divizquierda {
-        margin-right: 3rem;
+            margin-right: 3rem;
        }
   }
 

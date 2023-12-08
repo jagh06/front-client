@@ -183,6 +183,17 @@
     border: 1px solid green;
   }
   @media (max-width: 768px) {
+    .formcontrol {
+        height: 2rem;
+        width: 88%;
+    }
+    .formcontrolnumber {
+        height: 2rem;
+        width: 88%;
+    }
+    .formtextarea {
+        width: 94%;
+    }
     .ab{
       width: 85%; 
       height: 30%;
@@ -192,12 +203,13 @@
         display: block;
     }
     .imagesimages{
+        width: 100%;
        display: flex;
     }
     .imagehotel {
         border-radius: 15px;
-        width: 370px;
-        height: 320px;
+        width: 7rem;
+        height: 7rem;
         margin-left: 1rem;
     }
     .buttonaddnewlodging {
