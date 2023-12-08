@@ -8,18 +8,26 @@
     display: flex;
 }
 .plandivs {
+    margin-top: 3rem;
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+  .divtipoplan {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid rgb(179, 174, 174);
+    background-color: rgb(252, 249, 249);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .divplan {
     align-items: center;
     justify-content: center;
     display: flex;
-    width: 30%;
-    margin: 2rem;
-    border: 1px solid rgb(179, 174, 174);
-    background-color: rgb(236, 229, 229);
+    width: 100%;
 }
 .pe {
     font-size: 16px;
@@ -33,7 +41,7 @@
     border: none;
     font-size: 1.3rem;
     background-color: rgb(38, 95, 219);
-    height: 4rem;
+    height: 3rem;
     width: 100%;
     border-radius: 10px;
     color: white;
@@ -50,6 +58,8 @@
     font-size: 2rem;
     color: black;
 }
+
+
 
 @media (max-width: 768px) {
     .plandivs {
@@ -73,6 +83,7 @@
     }
     .divplan button {
         font-size: 10px;
-        width: 5rem;
+        height: 3rem;
+       
     }
 }

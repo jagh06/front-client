@@ -183,7 +183,7 @@ const MyLodgingEstandar = () => {
   return (
     <div className={styles.block}>
       <div className={styles.mihospedajes}>
-        <h3>Mi hospedaje</h3>
+        <h3 className={styles.h3mylodging}>Mi hospedaje</h3>
       </div>
 
       <div>
@@ -191,7 +191,7 @@ const MyLodgingEstandar = () => {
           <form onSubmit={handleFormSubmit}>
             <div className={styles.ab}>
               <div className={styles.cd}>
-                <h3>Detalles</h3>
+                <h3 className={styles.h3infohotel}>Detalles</h3>
                 <div className={styles.items}>
                   <p className={styles.item}>Nombre del hotel</p>
                   <input
@@ -264,7 +264,7 @@ const MyLodgingEstandar = () => {
                 </div>
               </div>
               <div className={styles.cd}>
-                <h3>Ubicación</h3>
+                <h3 className={styles.h3infohotel}>Ubicación</h3>
                 <div className={styles.items}>
                   <p className={styles.item}>Código Postal</p>
                   <input
@@ -337,9 +337,9 @@ const MyLodgingEstandar = () => {
             </div>
           </form>
 
-          <div className={styles.ab}>
+          <div className={styles.abdos}>
             <div className={styles.contenedorimages}>
-              <h3>Imágenes del hotel</h3>
+              <h3 className={styles.h3infohotel}>Imágenes del hotel</h3>
               <div className={styles.imagesimages}>
                 {images.map((image) => (
                   <Image
@@ -361,7 +361,7 @@ const MyLodgingEstandar = () => {
               <form onSubmit={handleFormSubmitDos}>
                 <div className={styles.ab}>
                   <div className={styles.cd}>
-                    <h3>Detalles</h3>
+                    <h3 className={styles.h3infohotel}>Detalles</h3>
                     <div className={styles.items}>
                       <p className={styles.item}>Nombre del hotel</p>
                       <input
@@ -434,7 +434,7 @@ const MyLodgingEstandar = () => {
                     </div>
                   </div>
                   <div className={styles.cd}>
-                    <h3>Ubicación</h3>
+                    <h3 className={styles.h3infohotel}>Ubicación</h3>
                     <div className={styles.items}>
                       <p className={styles.item}>Código Postal</p>
                       <input
@@ -507,9 +507,9 @@ const MyLodgingEstandar = () => {
                 </div>
               </form>
 
-              <div className={styles.ab}>
+              <div className={styles.abdos}>
                 <div className={styles.contenedorimages}>
-                  <h3>Imágenes del hotel</h3>
+                  <h3 className={styles.h3infohotel}>Imágenes del hotel</h3>
                   <div className={styles.imagesimages}>
                     {imagesDos.map((image) => (
                       <Image

@@ -5,12 +5,11 @@
     display: flex;
 }
 .divprivacy {
-    margin: 3rem;
     width: 50%;
 }
+
 .divprivacy p{
     text-align: justify;
-    width: 600px;
 }
 .divprivacy span {
     color: blue;
@@ -35,4 +34,11 @@
 
 .buttonsig:hover {
     background-color: rgb(20, 68, 172);
+}
+
+@media (max-width: 768px) {
+    .divprivacy {
+        margin: 0.5rem;
+        width: 98%;
+    }
 }

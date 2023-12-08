@@ -2,12 +2,15 @@
 .nonActive {
     font-size: 13px;
     text-decoration: none;
-    color: rgb(53, 50, 50);
+    color: rgb(238, 237, 237);
 }
 .active {
     font-size: 13px;
     text-decoration: none;
     color: rgb(73, 132, 241);
+}
+.nonActive:hover {
+    color: rgb(191, 191, 211);
 }
 
 /* */
@@ -16,7 +19,8 @@
     background-size: cover;
     background-position: 50%;
     background-color: rgb(69, 82, 202);
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .navbar {
@@ -37,12 +41,6 @@
     align-items: center;
 }
 @media (max-width: 400px) {
-   .navbar {
-    grid-template-columns: 1fr 2fr 1fr; 
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-   }
    .iconuser {
     width: 2rem;
    }
@@ -51,12 +49,6 @@
    }
 }
 @media (max-width: 500px) {
-    .navbar {
-     grid-template-columns: 1fr 2fr 1fr; 
-     padding: 30px;
-     justify-content: center;
-     align-items: center;
-    }
     .iconuser {
      width: 2rem;
     }
@@ -66,12 +58,6 @@
  }
 
  @media (max-width: 550px) {
-    .navbar {
-     grid-template-columns: 1fr 2fr 1fr; 
-     padding: 30px;
-     justify-content: center;
-     align-items: center;
-    }
     .iconuser {
      width: 2rem;
     }
@@ -81,12 +67,6 @@
  }
 
  @media (max-width: 600px) {
-    .navbar {
-     grid-template-columns: 1fr 2fr 1fr; 
-     padding: 30px;
-     justify-content: center;
-     align-items: center;
-    }
     .iconuser {
      width: 2rem;
     }
@@ -95,12 +75,6 @@
     }
  }
 @media (max-width: 768px) {
-    .navbar {
-        grid-template-columns: 1fr 2fr 1fr; 
-        padding: 30px;
-        justify-content: center;
-        align-items: center;
-       }
        .iconuser {
         width: 2rem;
        }
@@ -110,12 +84,6 @@
   }
 
   @media (max-width: 780px) {
-    .navbar {
-        grid-template-columns: 1fr 2fr 1fr; 
-        padding: 30px;
-        justify-content: center;
-        align-items: center;
-       }
        .iconuser {
         width: 2rem;
        }
@@ -143,11 +111,11 @@
 
 /* si existe imagen de usuario */
 .iconuser {
-   
     /* display: grid; */
     place-items: center;
     margin-left: auto;
     float: right;
+    width: 3rem;
 }
 .dropBody {
     /* display: block; */
@@ -155,7 +123,6 @@
     width: 15rem;
 }
 .imageuser {
-    float: right;
     width: 40px;
     height: 40px;
     border-radius: 100%;

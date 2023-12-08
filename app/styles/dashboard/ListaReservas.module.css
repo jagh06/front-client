@@ -1,14 +1,28 @@
+@font-face {
+    font-family: 'MiFuenteLatoThin';
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.h3list {
+    font-family: 'MiFuenteLatoThin';
+}
+.infouser {
+    width: 100%;
+}
+.cardinfouser p {
+    font-style: bold;
+}
 .divpricipal {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.divlista {
-    width: 70%;
-}
+
 .cardinfouser {
-    background-color: rgb(116, 119, 119, 0.4);
+    border: 1px solid rgb(173, 173, 173);
+    background-color: rgba(219, 221, 221, 0.3);
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 3px;
     margin-bottom: 1rem;
 }

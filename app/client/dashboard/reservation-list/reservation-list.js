@@ -36,21 +36,21 @@ const ReservationList = () => {
               {datas.map((index) => (
                 <div key={index._id} className={styles.cardinfouser}>
                   <div>
-                  <h3>Información de contacto</h3>
+                  <h3 className={styles.h3list}>Información de contacto</h3>
                     <p>Nombre: {index.name}</p>
-                    <p>Correo electronico: {index.email}</p>
-                    <p>Numero de teléfono: {index.phone} </p>
+                    <p>Correo electrónico: {index.email}</p>
+                    <p>Número de teléfono: {index.phone} </p>
                   </div>
                   <div>
-                    <h3>Numero de personas</h3>
+                    <h3 className={styles.h3list}>Número de personas</h3>
                     <p>Reservado para {index.numpersonas} personas.</p>
                   </div>
                   <div>
-                    <h3>Numero de noches</h3>
+                    <h3 className={styles.h3list}>Número de noches</h3>
                     <p>Reservado por {index.numdenoches} noches.</p>
                   </div>
                   <div>
-                    <h3>Fecha de llegada</h3>
+                    <h3 className={styles.h3list}>Fecha de llegada</h3>
                     <p>Fecha de llegada: {index.fechallegada}</p>
                   </div>
                 </div>

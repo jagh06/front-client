@@ -18,15 +18,12 @@ const SearchEmail = () => {
   };
 
   const fetchData = async (query) => {
-    const response = await fetch(
-      `${baseURL}api/clients/email/${query}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${baseURL}api/clients/email/${query}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -42,10 +39,9 @@ const SearchEmail = () => {
 
       if (result.data != null) {
         const email = result.data.email;
-        const response = await axios.post(
-          `${baseURL}api/clients/recover`,
-          { email }
-        );
+        const response = await axios.post(`${baseURL}api/clients/recover`, {
+          email,
+        });
         router.push("./msg-set-verification-link");
         return response.data;
       } else {
@@ -68,7 +64,7 @@ const SearchEmail = () => {
                 <input
                   type="email"
                   id="email_fiel"
-                  className="form_control"
+                  className={styles.formcontrol}
                   ref={emailRef}
                   value={email}
                   placeholder="Correo electrónico"
@@ -84,6 +80,8 @@ const SearchEmail = () => {
               </button>
             </div>
           </form>
+        </div>
+        <div className={styles.messageerror}>
           {errorAdd ? (
             <p className={styles.mesaggeExistsSearchEmail}>{errorAdd}</p>
           ) : null}

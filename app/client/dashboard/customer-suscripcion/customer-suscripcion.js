@@ -60,7 +60,7 @@ const CustomerSuscripcion = () => {
           <div className={styles.plandivs}>
             {datos.map((price) => (
               <div key={price.id} className={styles.divplan}>
-                <div>
+                <div className={styles.divtipoplan}>
                   <h3>{price.nickname == "basico" ? "Básico" : "Estándar"}</h3>
                   <p className={styles.prices}>
                     <span className={styles.spnamxn}>MXN</span>

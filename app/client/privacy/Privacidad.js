@@ -17,7 +17,7 @@ const Privacidad = () => {
           <div>
             <h2>Acuerdos y Avisos de Privacidad</h2>
           </div>
-          <div>
+          <div className={styles.divtexto}>
             <p>
               Bienvenido a Turingo Space. Agradecemos tu confianza en nosotros.
               Nos comprometemos a proteger y respetar tu privacidad. Al utilizar

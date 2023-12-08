@@ -183,7 +183,7 @@
 .useremail {
     max-width: auto;
     overflow: hidden;
-    font-size: 13px;
+    font-size: 10px;
     text-overflow: ellipsis;
     margin: 0px 0px 0px 0px;
 }

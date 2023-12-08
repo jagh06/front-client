@@ -52,7 +52,7 @@ const MySubscription = () => {
         {suscrito === true ? (
           <div>
             <div>
-              <p>
+              <p className={styles.pfelicidades}>
                 Felicidades! Estas suscrito al plan <span>{tipoPlan}</span> de
                 $<span>{precio}</span> pesos mexicanos mensuales.
               </p>{" "}

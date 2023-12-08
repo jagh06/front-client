@@ -92,10 +92,6 @@ const HeaderClient = () => {
                           <ul className={styleDrop.dropul}>
                             <span>
                               <div className={styleDrop.divuser}>
-                                <div className={styleDrop.divimageuserdrop}>
-                                  <h3>{initialName}</h3>
-                                </div>
-
                                 <div className={styleDrop.divnameemail}>
                                   <p className={styleDrop.username}>{name}</p>
                                   <p className={styleDrop.useremail}>{email}</p>

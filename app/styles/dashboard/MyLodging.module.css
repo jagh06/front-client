@@ -1,3 +1,22 @@
+@font-face {
+    font-family: 'MiFuenteLatoBlack';
+    src: url('/fonts/Lato-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MiFuenteLatoThin';
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.h3mylodging {
+    font-size: 25px;
+    font-family: 'MiFuenteLatoBlack';
+}
+.h3infohotel {
+    font-family: 'MiFuenteLatoThin';
+}
 .block {
     display: block;
 }
@@ -11,40 +30,19 @@
 }
 .ab {
     display: flex;
-    width: 50%;
-    margin: 1rem;
+    width: 100%;
+    margin: 0.5rem;
 }
 .cd{
     width: 100%;
     margin-left: 10px;
 }
-@media (max-width: 768px) {
-    .ab{
-      max-width: 100%; 
-      display: block;
-    }
-    .contenedor {
-        display: block;
-    }
-    .imagesimages{
-       display: flex;
-    }
-    .imagehotel {
-        background-color: black;
-        width: 370px;
-        height: 320px;
-        margin-left: 1rem;
-    }
-    
-    .contenedorimages {
-        overflow-y: auto;
-    }
-  }
+
 .item {
     color: rgb(129, 125, 125);
 }
 .items {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 .items input {
     font-size: 1rem;
@@ -53,24 +51,33 @@
     margin-left: 3rem;
 }
 .imagesimages{
-    height: 30rem; /* ajusta la altura máxima según tus necesidades */
+    width: 90%;
     overflow-y: auto;
+}
+.h3infohotel {
+    margin-left: 1rem;
+}
+
+.imagehotel {
+    padding: 5px;
+    border-radius: 10px;
+    width: 10rem;
+    height: 10rem;
 }
 
 /* button add */
 .divbutton {
     display: flex;
-    
     padding-left: 2rem;
     padding-bottom: 2rem;
 }
 
 .buttonForm{
     border: none;
-    font-size: 1.3rem;
-    height: 4rem;
-    width: 40%;
-    border-radius: 10px;
+    font-size: 1rem;
+    height: 3rem;
+    width: 30%;
+    border-radius: 5px;
     color: white;
     background-color: blue;
 }
@@ -81,7 +88,7 @@
 .formcontrol{
     text-decoration: none;
     border: 1px solid rgb(161, 158, 158);
-   padding-left: 3rem;
+    padding-left: 3rem;
    
 }
 
@@ -103,29 +110,30 @@
 }
 
 .formtextarea{
-    padding-left: 1rem;
+    resize: none;
+    padding-left: 1.3rem;
     text-decoration: none;
     font-size: 1.1rem;
 }
 .buttonaddnewlodging {
     margin-top: 1rem;
-    width: 30%;
+    width: 20%;
     padding: 0.4rem;
-    background-color: rgb(40, 121, 9);
+    background-color: rgb(24, 110, 190);
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     color: white;
 }
 .buttonaddnewlodging:hover {
-    background-color: rgb(51, 97, 32);
+    background-color: rgb(106, 189, 221);
 }
 
 /* toggle switch */
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 55px;
+    height: 27px;
   }
   
   .switch input {
@@ -150,8 +158,8 @@
   .slider:before {
     position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
+    height: 18px;
+    width: 18px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -173,4 +181,27 @@
   /* lista imagenes */
   .listaimages {
     border: 1px solid green;
+  }
+  @media (max-width: 768px) {
+    .ab{
+      width: 85%; 
+      height: 30%;
+      display: block;
+    }
+    .contenedor {
+        display: block;
+    }
+    .imagesimages{
+       display: flex;
+    }
+    .imagehotel {
+        border-radius: 15px;
+        width: 370px;
+        height: 320px;
+        margin-left: 1rem;
+    }
+    .buttonaddnewlodging {
+        width: 60%;
+    }
+  
   }

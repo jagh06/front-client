@@ -4,12 +4,22 @@
     justify-content: center;
 }
 .divprincipal{
-  
-    width: 60%;
+    width: 70%;
 }
+@media (max-width: 780px) {
+    .divprincipal{
+        width: 100%;
+    }
+}
+
+.pfelicidades {
+    font-size: 15px;
+    font-style: bold;
+}
+
 .divprincipal p {
     text-align: justify;
-    font-size: 1.3rem;
+   
 
 }
 .divprincipal span {

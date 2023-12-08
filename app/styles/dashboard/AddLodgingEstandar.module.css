@@ -67,6 +67,7 @@
 .formtextarea{
     text-decoration: none;
     font-size: 1.1rem;
+    resize: none;
 }
 
 /* button add */
@@ -109,5 +110,54 @@
     height: 70%;
 }
 .image {
+    border-radius: 15px;
     padding: 0.5rem;
+}
+
+.formcontrol::placeholder {
+    olor: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
+.formcontrolnumber::placeholder {
+    olor: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
+@media (max-width: 768px) {
+    .image {
+        width: 7rem;
+        height: 7rem;
+    }
+    .formcontrol {
+        width: 100%;
+    }
+    .d {
+        width: 100%;
+    }
+    .formulario {
+        width: 100%;
+    }
+    .buttonForm p{
+        font-size: 11px;
+    }
+    
+    .divstwo {
+        padding: 3rem;
+        width: 80%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .divsone {
+        width: 100%;
+    }
+    .d {
+        display: block;
+    }
+  
 }

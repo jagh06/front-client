@@ -1,13 +1,29 @@
+@font-face {
+    font-family: 'MiFuenteLatoThin';
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.h3hotel {
+    font-family: 'MiFuenteLatoThin';
+}
 .divform {
-    margin-top: -5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .divsone {
     width: 40%;   
 }
+
 .divstwo {
     width: 60%;   
 }
 .formulario{
+    border-radius: 3px;
+    border: 1px solid rgb(178, 182, 178);
+    width: 60%;
     font-display: flex;
 }
 
@@ -20,6 +36,20 @@
     width: 100%;
     margin-bottom: 10px;
 }
+.formcontrol::placeholder {
+    olor: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
+.formcontrolnumber::placeholder {
+    olor: #747272;
+    font-style: bold;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
 
 .formcontrolnumber{
     border: 1px solid rgb(161, 158, 158);
@@ -38,15 +68,6 @@
     display: flex;
 }
 
-
-@media (max-width: 768px) {
-    .d {
-        display: block;
-    }
-    .buttonForm p {
-        font-size: 15px;
-    }
-}
 
 .formcontrolnumber::-webkit-inner-spin-button,
 .formcontrolnumber::-webkit-outer-spin-button {
@@ -79,6 +100,8 @@
 .formtextarea{
     text-decoration: none;
     font-size: 1.1rem;
+    resize: none;
+
 }
 
 /* button add */
@@ -108,10 +131,10 @@
 
 .buttonForm{
     border: none;
-    font-size: 1.3rem;
+    font-size: 0.8rem;
     background-color: rgb(38, 95, 219);
-    height: 4rem;
-    width: 40%;
+    height: 3rem;
+    width: 30%;
     border-radius: 10px;
     color: white;
 }
@@ -124,4 +147,27 @@
 }
 .image {
     padding: 0.5rem;
+}
+@media (max-width: 768px) {
+    .formulario {
+        width: 100%;
+    }
+    .buttonForm p{
+        font-size: 11px;
+    }
+    
+    .divstwo {
+        padding: 3rem;
+        width: 80%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .divsone {
+        width: 100%;
+    }
+    .d {
+        display: block;
+    }
+  
 }
